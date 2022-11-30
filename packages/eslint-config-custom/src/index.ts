@@ -11,6 +11,7 @@ const config = {
     './configs/config',
     './configs/ts.expect',
     './configs/module',
+    './configs/stories',
     './configs/overrides',
   ],
   rules: {

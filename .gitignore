@@ -38,3 +38,6 @@ dist
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+
+# Logs
+*.log

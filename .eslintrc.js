@@ -1,7 +1,7 @@
 // @ts-check
 
-const { generateTsProjects } = require('eslint-config-custom/utils/generateTsProjects');
-const { generateImportResolver } = require('eslint-config-custom/utils/generateImportResolver');
+const { generateTsProjects } = require('@librario/eslint-config/utils/generateTsProjects');
+const { generateImportResolver } = require('@librario/eslint-config/utils/generateImportResolver');
 const pkg = require('./package.json');
 
 const tsProjects = generateTsProjects(__dirname, pkg.workspaces);
@@ -10,7 +10,7 @@ const tsProjects = generateTsProjects(__dirname, pkg.workspaces);
 const config = {
   root: true,
   // This tells ESLint to load the config from the package `eslint-config-custom`
-  extends: ['custom'],
+  extends: ['@librario'],
   parserOptions: {
     project: tsProjects,
   },
