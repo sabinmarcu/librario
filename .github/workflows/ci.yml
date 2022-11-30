@@ -23,11 +23,11 @@ jobs:
             fetch-depth: 2
  
         - name: Setup Node.js environment
-          uses: actions/setup-node@v3
+          uses: volta-cli/action@v3
           with:
             node-version: 16
             cache: 'yarn'
- 
+
         - name: Install dependencies
           run: yarn
  
