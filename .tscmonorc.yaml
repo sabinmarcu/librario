@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/sabinmarcu/tscmono/staging/packages/config/schemas/root.json
+baseConfig: "./tsconfig.base.json"
+mode: loose
+defaultFileMode: default
+presets: 
+  common: 
+    include: 
+      - "src/**/*"
+    exclude: 
+      - "src/**/*.spec.ts"
+      - "src/**/*.spec.tsx"
+  lib: 
+    compilerOptions: 
+      rootDir: 'src'
+      outDir: 'dist'
+      incremental: true
+      tsBuildInfoFile: 'dist/.tsbuildinfo'
+  web: 
+    compilerOptions:
+      jsx: react-jsx
+      lib:
+        - DOM
+      module: ESNext
+      target: ES6
+  vite: 
+    compilerOptions: 
+      rootDir: '.'
+    include: 
+      - vite.config.ts

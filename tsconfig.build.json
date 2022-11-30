@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/tsconfig.build.json"
+    }
+  ]
+}

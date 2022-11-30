@@ -1,0 +1,37 @@
+{
+  "name": "librario",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "postinstall": "run-p \"postinstall:*\"",
+    "postinstall:husky": "husky install",
+    "postinstall:dev": "run-s \"postinstall:dev:*\"",
+    "postinstall:dev:build-eslint": "turbo run build --filter=eslint-config-custom",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@3.3.0",
+  "dependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@tscmono/cli": "^0.2.0",
+    "@tscmono/preset-default": "^0.4.1",
+    "@types/jest": "^29.2.3",
+    "commitlint-plugin-workspace-scopes": "^1.1.0",
+    "eslint": "^8.28.0",
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.0.4",
+    "npm-run-all": "^4.1.5",
+    "ts-jest": "^29.0.3",
+    "turbo": "latest"
+  }
+}

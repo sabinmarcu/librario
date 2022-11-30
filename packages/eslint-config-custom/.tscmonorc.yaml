@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/sabinmarcu/tscmono/staging/packages/config/schemas/workspace.json
+presets: 
+  - common
+  - lib
