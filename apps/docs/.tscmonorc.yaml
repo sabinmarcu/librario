@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/sabinmarcu/tscmono/staging/packages/config/schemas/workspace.json
+overrides:
+  extends: "@tsconfig/docusaurus/tsconfig.json"
+  compilerOptions:
+    baseUrl: "."

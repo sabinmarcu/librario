@@ -1,0 +1,127 @@
+---
+sidebar_position: 2
+---
+import TOCInline from '@theme/TOCInline';
+
+# Setup
+
+:::warning Disclaimer
+#### This part took... way too long 🤦. Most of this is out of scope for the requirements, but these have been things that I've wanted to try for a while, or wanted to better on for a long time, and therefore took the time to experiment before tackling the actual requirements. 
+:::
+
+:::note After all
+I did this while on vacation 😅
+:::
+
+## Included on this page
+
+<TOCInline toc={toc.filter((_, idx) => idx > 0)} />
+
+## Repository Setup
+
+I've worked with `Nx` in the past, as well as homebrew solutions with nothing but `yarn 3` (see [tscmono](http://github.com/sabinmarcu/tscmono)), but never really tried `turborepo`, so this is what I went with for this project. Setup-wise, it took less work than `Nx` and was way easier to customize to a flow I felt comfortable with, so I'm happy with the choice. It's still mostly `yarn 3` in the background, and with a few tweaks, I got it to work with less distributed (read: all over the place) configuration files, and have them either centralized or outright generated at install time.
+
+Speaking of generating...
+
+## Typescript
+
+I chose typescript 4.9 (just released) mostly so I can start using the new `satisfies` keyword. I've also used [tscmono](http://github.com/sabinmarcu/tscmono), a tool I (partly) built a while back with the purpose of generating `tsconfig.json` files on the fly, based on presets, so I don't have to keep track of project references by hand. 
+
+`tsconfig.json` presets are just improvements over a base `tsconfig.base.json` and can be merged into the final `tsconfig.json` file. `tscmono` is configured with `.tsconfigrc.yml` (or any of the usual `cosmiconfig` patterns), one for the root of the project (where the presets are defined), and one for each package (where the presets are merged into the final `tsconfig.json` file).
+
+:::note
+VSCode language server for JSON/XML files supports a `schema` option in a comment at the top of the line, and, since I generate my types and validators for these configs from a JSON schema, that first line on each config file is a link to the schema file, so that the editor can provide auto-completion and validation.
+:::
+
+I'm also generating a `tsconfig.build.json`, which excludes all test files from building. That enables the base `tsconfig.json` to be used for the editor, and the `tsconfig.build.json` for `tsc -b <file>` or a similar flow.
+
+Granted, for this project, with no independent builds (for the most part) and no independent publishing of packages (which would require independent builds), it's not that necessary. However, it made integrating `eslint` a lot easier.
+
+Speaking of which...
+
+## ESLint
+
+I went with a completely custom eslint config which I've been iterating on for the past few projects ([my Nx experiment](https://github.com/sabinmarcu/website-helium) being one of them, and [an electron experiment](https://github.com/sabinmarcu/vy)). 
+
+Some plugins/addons that I've used are:
+
+------------------
+| Addon | Purpose |
+| --- | --- |
+| `eslint-plugin-expect-type` | Writing tests for types. <br /> Check any `.type.spec.ts` file |
+| `eslint-plugin-modules-newlines` | Force all `import { ... } from '...'` to have all elements on a new line |
+| `eslint-import-resolver-typescript` | Allow eslint to resolve `exports: { ... }` fields in `package.json` files |
+| `@babel/plugin-syntax-import-assertions` | Allow `import` statements to have `assert` fields in `.mjs` files |
+
+I've also built the config into small chunks, each treating a different subset of possible combinations (`.js` files extend `airbnb-base` and `.jsx` files extend `airbnb`, etc.)
+
+For more info, check out the [eslint config](https://github.com/sabinmarcu/librario/tree/master/packages/eslint-config-custom) itself.
+
+:::success Note
+This will definitely become an npm package really soon. I really like how it turned out, how flexible it is, and the fact that I brought it to the point where I can drop it into any of my projects and easily integrate it.
+:::
+
+:::info Types Testing
+I wanted to take one second to talk about type testing because I like the concept. Turns out, some really smart people have figured out that we can easily use `eslint` with the `@typescript-eslint/parser` to write out "unit" tests for types. For example, we could have: 
+
+```
+type Test = { a: string; b: number; c: boolean; };
+
+type Test2 = Test;
+//    ^? { a: string; b: number; c: boolean; }
+// 
+//            <eslint will fill in the type, 
+//           and it acts as an inline snapshot>
+
+declare const test: Test;
+
+// $ExpectError
+const x: string = test.b;
+// 
+// <eslint will detect that this isn't right, and the
+//   test will technically succeed since we're expecting
+//    it to error out>
+```
+
+In my case, this sort of type testing is enabled in `*.type.spec.ts` files, ignored by tests, builds, etc.
+:::
+
+Speaking of testing...
+
+## Jest
+
+First off, we all know what `jest` is. Currently, it's configured with `jest projects` and `ts-jest` for running only `TS/TSX` extensions. 
+
+Where I had fun with this was: 
+- writing the reusable configs as a generator with `.mjs` extensions
+- integrating `wallaby` more directly (`wallaby.js` file in root) since it didn't want to cooperate from the very beginning.
+
+Speaking of testing but in another way...
+
+## Storybook
+
+Storybook has been implemented as a separate app within the `apps` (not that the location matters) folder. It's the basic storybook setup, only that it is configured to retrieve stories from any package of the repository.
+
+:::warning Bug
+The `react-docgen-typescript` plugin doesn't seem to be working right with either: 
+- vite
+- monorepo 
+- these specific versions of the packages
+- any combination of the above
+
+Either way, generating controls for a story based on types doesn't seem to work, for now.
+:::
+
+:::info
+As we all know, stories can be used in unit tests, so I'm looking forward to trying that out. I'm hoping using a story as a fixture for unit testing in `jest/cypress` (maybe, at the end) will be more fun than rendering a component in a test and checking if it has the right text (for example)
+:::
+
+And speaking of visuals...
+
+## Docusaurus
+
+I've used docusaurus before, and I've always liked it. It's a great tool for documentation, and it's easy to use. Therefore, it was a no-brainer to use it for this project as a devlog of sorts. A place for me to write down how I set things up, and why, for later reflection, and inspiration, as [described earlier](./intro).
+
+## What next? 
+
+Onto **implementation**
