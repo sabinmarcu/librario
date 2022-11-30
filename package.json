@@ -10,8 +10,13 @@
     "postinstall": "run-p \"postinstall:*\"",
     "postinstall:husky": "husky install",
     "postinstall:dev": "run-s \"postinstall:dev:*\"",
-    "postinstall:dev:build-eslint": "turbo run build --filter=eslint-config-custom",
+    "postinstall:dev:build-eslint": "yarn build-eslint",
     "build": "turbo run build",
+    "build:watch": "turbo run build:watch",
+    "test": "turbo run test --parallel",
+    "test:watch": "turbo run test:watch",
+    "build-eslint": "turbo run build --filter=eslint-config-custom",
+    "build-eslint:watch": "turbo run build:watch --filter=eslint-config-custom",
     "dev": "turbo run dev --parallel"
   },
   "engines": {
@@ -32,6 +37,11 @@
     "lint-staged": "^13.0.4",
     "npm-run-all": "^4.1.5",
     "ts-jest": "^29.0.3",
+    "tsconfig-paths": "^4.1.0",
     "turbo": "latest"
+  },
+  "volta": {
+    "node": "18.12.1",
+    "yarn": "3.3.0"
   }
 }
