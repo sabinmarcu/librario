@@ -1,6 +1,6 @@
 import {
   Button,
-} from 'ui';
+} from '@librario/ui';
 
 function App() {
   return (

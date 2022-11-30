@@ -1,4 +1,4 @@
 '*.{js,mjs,cjs,ts,mts,cts,tsx}': 
   - 'eslint --fix'
 '*.{ts,mts,cts,tsx}':  
-  - 'jest --findRelatedTests'
+  - 'jest --findRelatedTests --passWithNoTests'
