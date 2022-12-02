@@ -84,7 +84,7 @@ Everything else can be processed as-is (transform values and mixins from statica
 
 ## Coding Approach
 
-As tempting as it may be to use `console.log` iteratively or something like `Quokka` to run things directly, I went through all the trouble in the [setup section](./setup) to set up both unit and type testing. I'm going to make the best of it.
+As tempting as it may be to use `console.log` iteratively or something like `Quokka` to run things directly, I went through all the trouble in the [setup section](../setup) to set up both unit and type testing. I'm going to make the best of it.
 
 1. I'll start by writing up some helpful types first, on the more complex types, and test them.
 
