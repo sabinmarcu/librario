@@ -93,3 +93,39 @@ As tempting as it may be to use `console.log` iteratively or something like `Quo
 3. After that, I'll move on to the core of the theme generation, and the outputs it'll have, and do the same as the utils.
 
 4. Finally, I'll move on to the React part of the system, and... well, I'll skip the tests here, React helps a bunch, but I will still unit test them, and write some stories. 
+
+## Unique Takes
+
+There are a few unique features in this theme system, compared to regular ones:
+1. There's no need for a theme provider, as the theme is generated and rendered to the DOM, and the "theme" itself contains nothing but CSS variables.
+2. The theme setup contains just enough JS to store a theme variant selection in local storage
+
+Let me explain. First of all, this system won't work (as of December 2022) in Firefox, as it's using the `:has` (or parent) selector and a few `input[type=radio]` elements hidden on the page to handle theme switching.
+
+A "theme" is a set of two `light` and `dark` themes, with identical variables, but different values. The theme system will generate the CSS variables for both themes, and render them to the DOM. Per theme, the variables will be added under the proper `@media (prefers-color-scheme)` query, as well as a `.theme-<theme>` and `body:has(input[<theme>]:checked)` selector, to allow for theme switching.
+
+Example: 
+```css
+@media (prefers-color-scheme: dark) { ... }
+body:has(input[data-theme-control="dark"]:checked), .theme-dark { ... }
+```
+
+This means that, with no JS, the theme can react to a user's system preferences, and switch accordingly, as well as `button[label=<theme>]`s on the page, which will switch the theme to the selected one (or back to system chosen), without any JS required (past rendering, useful for SSG). The only caveat here is that there's no persistence of said choice.
+
+That being said, here are a few more cool things: 
+1. Media queries generated based on the breakpoints are fully typed
+2. Transitions generated are also fully typed
+
+Examples: 
+```ts
+import { light: { theme: { breakpoints: { mediaQuery }, transitions: { create } } } } from './theme';
+
+create('backgroundColor', ['transition', 'complex'], ['border-color', 'shortest', 'easeInOut']);
+// => 'background-color var(--default-duration) 0ms var(--default-easing), transition var(--complex-duration) 0ms var(--default-easing), border-color var(--shortest-duration) 0ms var(--ease-in-out-easing)'
+
+mediaQuery('media', 'screen', 'not', { lessThan: 'tablet' });
+// => '@media screen and (max-width: var(--breakpoint-tablet))'
+
+mediaQuery('content', 'screen', { between: ['mobile', 'tablet'] });
+// => '@content screen and (min-width: var(--breakpoint-mobile) and (max-width: var(--breakpoint-tablet))'
+```
