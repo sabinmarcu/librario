@@ -41,6 +41,7 @@ dist
 
 # Logs
 *.log
+out.json
 
 # Storybook
 storybook-static

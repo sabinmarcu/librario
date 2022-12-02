@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const { mergeConfig } = require('vite');
 
 const rootPath = '../../../';
 const root = path.resolve(__dirname, rootPath);
@@ -12,7 +13,7 @@ const { workspaces } = JSON.parse(
 
 const extensions = ['mdx', 'tsx'];
 const stories = workspaces.map(
-  (workspace) => `${rootPath}${workspace}/src/**/*.stories.@(${extensions.join('|')})`,
+  (workspace) => `${rootPath}${workspace}/src/**/*.@(stories|story).@(${extensions.join('|')})`,
 );
 
 module.exports = {
@@ -27,12 +28,18 @@ module.exports = {
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      propFilter: (prop) => {
-        console.log(prop.parent?.name);
-        return (prop.parent
-          ? /@librario/.test(prop.parent.fileName)
-          : true);
-      },
+      propFilter: (prop) => (prop.parent
+        ? /@librario/.test(prop.parent.fileName)
+        : true),
     },
+  },
+  async viteFinal(config) {
+    /** @type {import('vite').UserConfig} */
+    const newConfig = {
+      esbuild: {
+        target: 'es2020',
+      },
+    };
+    return mergeConfig(config, newConfig);
   },
 };

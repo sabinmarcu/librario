@@ -1,4 +1,4 @@
-import {
+import type {
   Config,
 } from '../types';
 
@@ -41,6 +41,15 @@ const config = {
         'react/react-in-jsx-scope': 0,
         'react/prop-types': 0,
         'react/require-default-props': 0,
+        'react/jsx-props-no-spreading': 0,
+      },
+    },
+    {
+      files: [
+        '*.ts',
+        '*.tsx',
+      ],
+      rules: {
         '@typescript-eslint/indent': [
           'error',
           2,
@@ -48,6 +57,14 @@ const config = {
             ignoredNodes: [
               'TSTypeParameterInstantiation',
             ],
+          },
+        ],
+        '@typescript-eslint/consistent-type-exports': 'error',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            prefer: 'type-imports',
+            fixStyle: 'separate-type-imports',
           },
         ],
       },

@@ -1,0 +1,23 @@
+{
+  "name": "@librario/theme",
+  "version": "0.0.0",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "lint": "TIMING=1 eslint \"**/*.ts*\""
+  },
+  "devDependencies": {
+    "@librario/eslint-config": "workspace:*",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "eslint": "^8.0.1",
+    "react": "^18.2.0",
+    "typescript": "^4.9.0"
+  },
+  "dependencies": {
+    "moize": "^6.1.3",
+    "polished": "^4.2.2",
+    "type-fest": "^3.3.0"
+  }
+}

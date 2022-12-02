@@ -1,1 +1,2 @@
 !apps/storybook/.storybook
+!apps/storybook/.storybook/**/*

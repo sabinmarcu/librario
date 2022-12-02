@@ -6,9 +6,6 @@ presets:
   common: 
     include: 
       - "src/**/*"
-    exclude: 
-      - "src/**/*.spec.ts"
-      - "src/**/*.spec.tsx"
   lib: 
     compilerOptions: 
       rootDir: 'src'
@@ -27,3 +24,10 @@ presets:
       rootDir: '.'
     include: 
       - vite.config.ts
+  build: 
+    exclude: 
+      - "src/**/*.spec.ts"
+      - "src/**/*.spec.tsx"
+files: 
+  build: 
+    preset: build

@@ -15,9 +15,11 @@
     "build:watch": "turbo run build:watch",
     "test": "turbo run test --parallel",
     "test:watch": "turbo run test:watch",
-    "build-eslint": "turbo run build --filter=eslint-config-custom",
-    "build-eslint:watch": "turbo run build:watch --filter=eslint-config-custom",
-    "dev": "turbo run dev --parallel"
+    "build-eslint": "turbo run build --filter=eslint-config",
+    "build-eslint:watch": "turbo run build:watch --filter=eslint-config",
+    "dev": "turbo run dev --parallel",
+    "docs": "turbo run dev --filter=docs",
+    "sb": "turbo run dev --filter=storybook"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -42,5 +44,8 @@
   "volta": {
     "node": "18.12.1",
     "yarn": "3.3.0"
+  },
+  "resolutions": {
+    "esbuild": "0.15.16"
   }
 }

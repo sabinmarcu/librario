@@ -9,6 +9,9 @@
       "path": "./eslint-config-custom/tsconfig.build.json"
     },
     {
+      "path": "./theme/tsconfig.build.json"
+    },
+    {
       "path": "./ui/tsconfig.build.json"
     }
   ]
