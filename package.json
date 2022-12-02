@@ -10,6 +10,7 @@
     "postinstall": "run-p \"postinstall:*\"",
     "postinstall:husky": "husky install",
     "postinstall:dev": "run-s \"postinstall:dev:*\"",
+    "postinstall:dev:tsconfig": "yarn tscmono",
     "postinstall:dev:build-eslint": "yarn build-eslint",
     "build": "turbo run build",
     "build:watch": "turbo run build:watch",
