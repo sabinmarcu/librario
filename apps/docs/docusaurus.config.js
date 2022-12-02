@@ -46,7 +46,6 @@ const config = {
     ],
   ],
 
-
   markdown: {
     mermaid: true,
   },
@@ -65,11 +64,26 @@ const config = {
             label: 'The Journey',
           },
           {
+            href: 'https://librario-app.vercel.app/',
+            label: 'The App Itself',
+            position: 'right',
+          },
+          {
+            href: 'https://librario-storybook.vercel.app/',
+            label: 'Storybook',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/sabinmarcu/librario',
             label: 'GitHub',
             position: 'right',
           },
         ],
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       prism: {
         theme: lightCodeTheme,

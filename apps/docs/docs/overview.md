@@ -34,8 +34,8 @@ graph TD
   end
   end
   style APP stroke:red,fill:orange
-  style Legend fill:white
-  style Workspaces fill:#eee
+  style Legend fill:transparent
+  style Workspaces fill:transparent
 ```
 
 Okay, I didn't get `mermaid` to make something really, really nice. Essentially, I split the project into apps and libraries. As far as the project is concerned, the `apps/app` is the only bit that matters. The rest is setup, documentation, design system, and other fun distractions (like the theme engine).
