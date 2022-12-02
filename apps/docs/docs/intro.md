@@ -16,4 +16,4 @@ Overall, I will be discussing why I picked certain technologies (and why it took
 
 I started building these docs once the rest of the setup was more or less done. That'll be included in the [setup section](./setup).
 
-<!-- Also, I recommend starting with the [overview](./overview) section, as it will give you a better idea of how the project is set up. -->
+Also, I recommend starting with the [overview](./overview) section, as it will give you a better idea of how the project is set up.
