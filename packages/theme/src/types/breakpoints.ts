@@ -35,7 +35,7 @@ export type BetweenType<
   Start extends keyof BPs,
   End extends keyof BPs,
 > = {
-  between: [Start, End];
+  between: [from: Start, to: End];
 };
 export type LowerThanType<
   BPs extends Breakpoints,
