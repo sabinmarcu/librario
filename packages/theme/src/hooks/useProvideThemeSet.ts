@@ -9,11 +9,15 @@ import type {
   ThemeVariant,
 } from '../theme/index';
 import { useLocalStorage } from './useLocalStorage';
-import { useProvideTheme } from './useProvideTheme';
+import {
+  controlDataAttribute,
+  useProvideTheme,
+} from './useProvideTheme';
 
 interface ThemeSetContextType {
   selection: ThemeSelection,
   themeClasses: ThemeClassesType,
+  inputSelector: string,
   setSelection: (selection: ThemeSelection) => void,
 }
 
@@ -21,6 +25,7 @@ export type ThemeClassesType = Record<ThemeVariant, string>;
 export const ThemeSetContext = createContext<ThemeSetContextType>({
   selection: 'system',
   themeClasses: { light: '', dark: '' },
+  inputSelector: '',
   setSelection: () => { throw new Error('ThemeSetContext not provided'); },
 });
 
@@ -36,11 +41,14 @@ export const useProvideThemeSet = (
         if (input) {
           const [, value] = input.split('=');
           const compare = JSON.parse(value);
+          if (selection !== compare) {
+            return;
+          }
           const inputElement = document.querySelector<HTMLInputElement>(`[${input}]`);
           if (!inputElement) {
             return;
           }
-          inputElement.checked = selection === compare;
+          inputElement.checked = true;
         }
       });
     },
@@ -52,6 +60,7 @@ export const useProvideThemeSet = (
       light: lightClass,
       dark: darkClass,
     },
+    inputSelector: controlDataAttribute,
     setSelection,
   } as const satisfies ThemeSetContextType;
 };

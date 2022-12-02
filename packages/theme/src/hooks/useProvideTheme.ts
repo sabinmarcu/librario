@@ -58,7 +58,8 @@ export const useThemeControls = (
     () => {
       const input = provideThemeControl(wrapper, name);
       if (input) {
-        input.type = 'checkbox';
+        input.type = 'radio';
+        input.name = controlDataAttribute;
       }
       return input;
     },
