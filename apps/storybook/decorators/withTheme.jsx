@@ -36,7 +36,7 @@ export const withTheme = (
     <Global styles={css`
       body {
         background: ${theme.colors.background.main};
-        overflow: hidden;
+        overflow-x: hidden;
       }
     `}
     />
