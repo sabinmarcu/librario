@@ -29,6 +29,7 @@ export const RawSidebar: FC<RawSidebarProps> = (props) => {
       position: props.position,
       width: props.width,
       open: props.open,
+      children: props.children,
     }),
     [props.opacity, props.width, props.open],
   );
@@ -45,7 +46,7 @@ export const RawSidebar: FC<RawSidebarProps> = (props) => {
 
 export type SidebarProps = Omit<RawSidebarProps, 'open'>;
 
-export const Sidebar: FC<SidebarContainerProps & OverlayProps> = (props) => {
+export const Sidebar: FC<SidebarProps> = (props) => {
   const [open] = useAtom(sidebarOpen);
   return (<RawSidebar {...props} open={open} />);
 };

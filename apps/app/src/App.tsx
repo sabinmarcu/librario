@@ -1,12 +1,13 @@
-import {
-  Button,
-} from '@librario/ripple';
+import { ThemeSetProvider } from '@librario/theme';
+import { AppBar } from './components/AppBar';
+import { AppSidebar } from './components/Sidebar';
 
 function App() {
   return (
-    <div className="App">
-      <Button />
-    </div>
+    <ThemeSetProvider>
+      <AppBar />
+      <AppSidebar />
+    </ThemeSetProvider>
   );
 }
 

@@ -26,7 +26,7 @@ export const SidebarContainer = styled(Paper, {
   `,
   ({ width }) => css`
     width: ${width ? `${width}px` : '30vw'};
-    max-width: ${width || 400}px;
+    max-width: ${width || 500}px;
   `,
   ({ position = 'right' }) => {
     switch (position) {

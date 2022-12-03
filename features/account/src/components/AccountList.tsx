@@ -1,7 +1,11 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from '@librario/theme';
-import { Surface } from '@librario/ui';
+import {
+  Surface,
+  H3,
+  P,
+} from '@librario/ui';
 import { useAtomValue } from 'jotai';
 import type { FC } from 'react';
 import { accounts } from '../state/accounts';
@@ -19,7 +23,7 @@ export const List = styled(Surface)`
   overflow: hidden;
   border-radius: ${theme.shape.borderRadius};
   & > * {
-    border-bottom: solid 1px ${theme.colors.background.main}
+    border-bottom: solid 1px ${theme.colors.background.paper}
   }
 `;
 List.defaultProps = {
@@ -27,12 +31,13 @@ List.defaultProps = {
 };
 
 const loginStatusStyle = css`
-  padding-left: 0.5rem;
-  padding-bottom: 0.2rem;
+  padding-left: 1rem;
 `;
 const loginStatusBorder = ` solid 2px ${theme.colors.background.paper}`;
-export const LoginStatusTitle = styled.h1`
+
+export const LoginStatusTitle = styled(H3)`
   ${loginStatusStyle}
+  padding-bottom: 1.5rem;
   border-bottom: ${loginStatusBorder};
 `;
 
@@ -62,8 +67,9 @@ LoginStatusWrapper.defaultProps = {
   elevation: 1,
 };
 
-export const NotLoggedInText = styled.h4`
+export const NotLoggedInText = styled(P)`
   ${loginStatusStyle}
+  font-size: 1.5rem;
 `;
 
 export const LoginStatus: FC = () => {

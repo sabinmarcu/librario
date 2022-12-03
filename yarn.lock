@@ -3296,7 +3296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@librario/account@workspace:features/account":
+"@librario/account@workspace:*, @librario/account@workspace:features/account":
   version: 0.0.0-use.local
   resolution: "@librario/account@workspace:features/account"
   dependencies:
@@ -3321,16 +3321,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@librario/app@workspace:apps/app"
   dependencies:
+    "@emotion/css": ^11.10.5
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
-    "@librario/ripple": "workspace:*"
+    "@librario/account": "workspace:*"
+    "@librario/sidebar": "workspace:*"
     "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     "@vitejs/plugin-react": ^2.2.0
+    jotai: ^1.11.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-router-dom: ^6.4.4
     typescript: ^4.6.4
     vite: ^3.2.3
   languageName: unknown
@@ -3415,7 +3420,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/sidebar@workspace:features/sidebar":
+"@librario/sidebar@workspace:*, @librario/sidebar@workspace:features/sidebar":
   version: 0.0.0-use.local
   resolution: "@librario/sidebar@workspace:features/sidebar"
   dependencies:
@@ -3736,6 +3741,13 @@ __metadata:
   version: 1.0.0-next.21
   resolution: "@polka/url@npm:1.0.0-next.21"
   checksum: c7654046d38984257dd639eab3dc770d1b0340916097b2fac03ce5d23506ada684e05574a69b255c32ea6a144a957c8cd84264159b545fca031c772289d88788
+  languageName: node
+  linkType: hard
+
+"@remix-run/router@npm:1.0.4":
+  version: 1.0.4
+  resolution: "@remix-run/router@npm:1.0.4"
+  checksum: db6b1e111fb6e7e22c3d274bd6cef3054a0a989245894fde5735efd9cb46d18511e528e813ff50bcbdd7eda1c559f4e76e9d0c54396624e33396168d80b09c42
   languageName: node
   linkType: hard
 
@@ -19140,6 +19152,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-router-dom@npm:^6.4.4":
+  version: 6.4.4
+  resolution: "react-router-dom@npm:6.4.4"
+  dependencies:
+    "@remix-run/router": 1.0.4
+    react-router: 6.4.4
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 95f31ae84979b404db7483309e1063fbf724046103dc8b7be7e6df79f7b81e4e63dcdb587f11d8be38e3aaf62b71f9e0d83344ef8d8c5e962de7819c793de781
+  languageName: node
+  linkType: hard
+
 "react-router@npm:5.3.4, react-router@npm:^5.3.3":
   version: 5.3.4
   resolution: "react-router@npm:5.3.4"
@@ -19156,6 +19181,17 @@ __metadata:
   peerDependencies:
     react: ">=15"
   checksum: 892d4e274a23bf4f39abc2efca54472fb646d3aed4b584020cf49654d2f50d09a2bacebe7c92b4ec7cb8925077376dfcd0664bad6442a73604397cefec9f01f9
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.4.4":
+  version: 6.4.4
+  resolution: "react-router@npm:6.4.4"
+  dependencies:
+    "@remix-run/router": 1.0.4
+  peerDependencies:
+    react: ">=16.8"
+  checksum: d82cc8b8bdf10e02e07d089f9d82987fa161c2f07583c973126f5f8a052c02b3d2339891ddbda1738f877755a407e2c35f0dc1ac52aaa1d2c853774d19753ea7
   languageName: node
   linkType: hard
 

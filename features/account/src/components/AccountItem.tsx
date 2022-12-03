@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from '@librario/theme';
 import {
   Button,
-  Paper,
+  Surface,
 } from '@librario/ui';
 import {
   useAtom,
@@ -25,8 +25,8 @@ export const AdminDisplay = styled.span`
   color: ${theme.colors.text.secondary};
 `;
 
-export const Wrapper = styled(Paper)`
-  padding: 0.5rem;
+export const Wrapper = styled(Surface)`
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
