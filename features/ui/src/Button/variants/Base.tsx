@@ -5,6 +5,7 @@ import type { ButtonBaseProps } from '../types';
 
 export const BaseButton = styled.button<ButtonBaseProps>(
   css`
+    ${theme.mixins.typography.button};
     border-radius: ${theme.shape.borderRadius};
     border: none;
     background: transparent;
