@@ -18,7 +18,7 @@ export const Overlay = styled('div', {
     height: 100vh;
     position: absolute;
     inset: 0;
-    background: ${theme.colors.text.main};
+    background: hsl(0, 0%, 0%);
     transition: ${theme.transition.create(['opacity', 'leavingScreen'])};
     transition-delay: calc(${theme.transition.duration.leavingScreen} / 2);
   `,
