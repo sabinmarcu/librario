@@ -1,0 +1,75 @@
+---
+sidebar_position: 3
+sidebar_label: Accounts
+---
+
+# Accounts Feature
+
+Since there are no requirements for data to be stored outside the app, and no specification for account/user operations, only that they could exist, I decided to hardcode a few. 
+
+That's not to say I didn't build state around it. The way I planned it, is:
+
+1. Several accounts are "created" on app start
+2. Accounts can be "logged in" from a list of all accounts on a sidebar
+3. Accounts and Current Account state is replicated to localStorage
+4. Current Account data is available both through hooks and components for conditional rendering
+
+Of course, I turned to `Jotai` again, to learn a new skill. User information is stored atomically (with `atomWithStorage` / `atom`), and combined into usable shape with `atomFamily` "selectors".
+
+I created a list of users, along with the logic required, ready to be rendered in the app.
+
+I also created a few `atom` selectors for use in conditional routing and a few components for conditional rendering.
+
+## Usage
+
+### Accounts List
+
+```tsx
+import { AcccountList } from '@librario/account'
+
+export const Sidebar = () => (
+  <header>
+    [...]
+    <AccountList [showStatus] />
+    [...]
+  </header>
+)
+```
+
+### Conditional Render
+
+```tsx
+import { IfLoggedIn, IfUser } from '@librario/account'
+
+export const Thing = () => (
+  <div>
+
+    <IfLoggedIn>
+      <p>Logged in!</p>
+    </IfLoggedIn>
+
+    <IfUser>
+      <p>I'm a regular user!</p>
+    </IfUser>
+
+  </div>
+)
+
+```
+
+Or, if I need to do something other than "not render" when the condition isn't passing:
+
+```tsx
+import { isLoggedIn, isAdmin } from '@librario/account'
+
+export const LoggedInRoute = () => {
+  const loggedIn = useAtomValue(isLoggedIn)
+  const admin = useAtomValue(isAdmin)
+
+  if (!loggedIn) return <Redirect to="/login" />
+
+  if (admin) return <AdminRoute />
+
+  return <UserRoute />
+}
+```

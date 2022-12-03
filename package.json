@@ -21,7 +21,8 @@
     "build-eslint:watch": "turbo run build:watch --filter=eslint-config",
     "dev": "turbo run dev --parallel",
     "docs": "turbo run dev --filter=docs",
-    "sb": "turbo run dev --filter=storybook"
+    "sb": "turbo run dev --filter=storybook",
+    "app": "turbo run dev --filter=app"
   },
   "engines": {
     "node": ">=14.0.0"
