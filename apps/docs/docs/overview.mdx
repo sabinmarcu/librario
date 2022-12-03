@@ -26,12 +26,14 @@ graph TD
     end
     subgraph Features
     F --> UI( Style Guide )
+    F --> SIDEBAR( Sidebar )
     end
     subgraph Packages
     P --> ESL( ESLint Configs )
     P --> THEME( Theme Engine )
     P --> RIPPLE( Ripple Engine )
     P --> HOOKS( Reusable Hooks )
+    P --> UTILS( Various Utils )
     end
   end
   style APP stroke:red,fill:orange

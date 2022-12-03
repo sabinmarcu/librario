@@ -1,0 +1,50 @@
+---
+sidebar_position: 2
+sidebar_label: Sidebar
+---
+
+# Sidebar
+
+:::success
+Sidebar... but better?
+:::
+
+Again, this is a feature that seems simple, and that should belong in the [Design System]('./ui'). 
+
+That being said, I found a way to do it right. 
+
+First of all, I wanted the sidebar above all else, as well as an overlay to be displayed between the sidebar and the main app. Best way to do that? Take it out of the main app, **of course**.
+
+Cool features implemented here: 
+1. Modular components, individually developed and tested in [Storybook](https://librario-storybook.vercel.app/?path=/story/features-sidebar-sidebar--sidebar)
+2. Full sidebar rendered as a portal
+3. State (and communication between app and portal) done with `Jotai`
+
+## Usage
+
+Plop the `Sidebar` component somewhere in the app, populate it with content, and render a `SidebarButton` somewhere in the rest of the app for the trigger.
+
+```tsx
+const App = () => (
+  <>
+    // Render the Sidebar
+    <Sidebar>
+      // Populate with content
+      [...]
+      
+      // Don't forget a close button somewhere, just in case
+      <SidebarButton type="close" />
+    </Sidebar>
+
+    // Build the rest of the app
+    <AppBar> 
+      [...]
+
+      // Don't forget to trigger it somewhere
+      <SidebarButton type="open" />
+    </AppBar>
+
+    [...]
+  </>
+)
+```

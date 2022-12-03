@@ -1,0 +1,28 @@
+---
+sidebar_position: 2
+sidebar_label: Ripple HOC
+---
+
+# Ripple HOC
+
+We all love the animation. How hard is it to code it, and how can it be integrated as a HOC to any component (well, any component that accepts `children`)
+
+The answer? Not... extremely complicated. 
+
+To be honest, I "borrowed" the code from an older project, done away with extra bits (like a HOC with a single ripple that resets on each click), and improved it.  
+
+The original had a **HUGE** issue with click events not being picked up when attached with `onClick` from the parent component.
+
+## Usage
+
+It's a **HOC**. Take any component, and do this: 
+
+```ts
+const MyComponent = withRipple(...)
+```
+
+That's it. The HOC will take care of the rest.
+
+:::warning Big Gotcha
+Note that this will not work with components that don't accept `children`, like the `input` element, or any custom components that don't render their `children`.
+:::
