@@ -23,7 +23,7 @@ const RenderWrapper = styled.div`
   flex-flow: column nowrap;
   padding: 1rem;
   gap: 1rem;
-  border: solid 1px ${theme.palette.background.main};
+  border: solid 1px ${theme.colors.background.main};
   align-items: center;
   justify-content: center;
 `;
@@ -44,8 +44,8 @@ const RenderRipple: Story<{
       box-shadow: ${theme.shadows[1]};
       border: none;
       &, &:hover {
-        background: ${theme.palette.background.paper};
-        color: ${theme.palette.text.main};
+        background: ${theme.colors.background.paper};
+        color: ${theme.colors.text.main};
       }
     `)),
     [Component],

@@ -1,5 +1,8 @@
 import { useReplicateRef } from '@librario/hooks';
-import type { ComponentType } from 'react';
+import type {
+  ComponentType,
+  PropsWithChildren,
+} from 'react';
 import {
   Children,
   createElement,
@@ -13,7 +16,7 @@ import type {
 import { Ripple } from './Ripple';
 
 export const withRipple = <
-  K extends {},
+  K extends PropsWithChildren<{}>,
   T extends HTMLElement,
 >(
   Component: ComponentType<K>,

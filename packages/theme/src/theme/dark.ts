@@ -9,4 +9,5 @@ export const darkTheme = createTheme({
   success: 'hsl(123, 38%, 57%)',
   background: 'hsl(0, 0%, 20%)',
   text: 'hsl(0, 0%, 80%)',
+  interactions: 'hsl(0, 0%, 100%)',
 });

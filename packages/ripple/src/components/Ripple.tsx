@@ -24,7 +24,7 @@ export const Ripple = styled(
     top: ${position.y - size / 2}px;
     border-radius: ${size / 2}px;
     animation: ${rippleAnimation} ${duration}ms linear;
-    background-color: ${theme.palette.background.light};
+    background-color: ${theme.colors.interactions.main};
     transform: scale(4);
     opacity: 0;
     *:has(> &) {

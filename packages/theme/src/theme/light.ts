@@ -7,6 +7,7 @@ export const lightTheme = createTheme({
   warning: 'hsl(27, 98%, 47%)',
   info: 'hsl(201, 98%, 41%)',
   success: 'hsl(123, 46%, 34%)',
-  background: 'hsl(0, 0%, 80%)',
+  background: 'hsl(0, 0%, 90%)',
   text: 'hsl(0, 0%, 0%)',
+  interactions: 'hsl(0, 0%, 0%)',
 });

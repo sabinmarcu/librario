@@ -65,7 +65,11 @@ export const useThemeControls = (
     },
     [name, wrapper],
   );
-  return control;
+  const selector = useMemo(
+    () => `${controlDataAttribute}="${control.getAttribute(controlDataAttribute)}"`,
+    [control],
+  );
+  return selector;
 };
 
 export const useProvideTheme = (
@@ -82,10 +86,6 @@ export const useProvideTheme = (
     [name, prefix],
   );
   const control = useThemeControls(name);
-  const controlSelector = useMemo(
-    () => `${controlDataAttribute}="${control.getAttribute(controlDataAttribute)}"`,
-    [name, prefix],
-  );
   useEffect(
     () => {
       const style = Object.entries(theme.style)
@@ -97,12 +97,14 @@ export const useProvideTheme = (
       }
       const selectors = [
         `.${styleClass}`,
-        `body:has([${controlSelector}]:checked)`,
-      ];
+        `body:has([${control}]:checked)`,
+      ]
+        .map((it) => [it, `${it} ::after`, `${it} ::before`])
+        .reduce((acc, it) => [...acc, ...it], []);
       contentBlocks.push(`${selectors.join(', ')} { ${style} }`);
       styleTag.textContent = contentBlocks.join('\n');
     },
-    [name, styleTag, theme.style, styleClass, controlSelector],
+    [name, styleTag, theme.style, styleClass, control],
   );
-  return [styleClass, controlSelector];
+  return [styleClass, control];
 };

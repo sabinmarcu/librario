@@ -1,4 +1,5 @@
 import { parseToHsl } from 'polished';
+import type { HslaColor } from 'polished/lib/types/color';
 import type { HSLColor } from '../types/colors';
 
 export const isHslColor = (value: unknown): value is HSLColor => (
@@ -6,6 +7,11 @@ export const isHslColor = (value: unknown): value is HSLColor => (
 );
 
 export const toHsl = (color: string): HSLColor => {
-  const { hue, saturation, lightness } = parseToHsl(color);
-  return `hsl(${hue}, ${saturation * 100}%, ${lightness * 100}%)`;
+  const {
+    hue,
+    saturation,
+    lightness,
+    alpha,
+  } = parseToHsl(color) as HslaColor;
+  return `hsl(${hue}, ${saturation * 100}%, ${lightness * 100}%, ${typeof alpha === 'undefined' ? 100 : alpha}%)`;
 };

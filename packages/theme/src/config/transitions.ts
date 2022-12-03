@@ -18,7 +18,7 @@ export const rawTransitions = {
   },
   defaults: {
     easing: 'easeOut',
-    duration: 'shortest',
+    duration: 'short',
   },
 } as const;
 

@@ -10,6 +10,7 @@ import type {
   TransitionGenerator,
   TransitionsResult,
 } from '../types/transitions';
+import { toKebabCase } from '../utils/css';
 import {
   propsOfTransform,
   styleOfTransform,
@@ -82,19 +83,19 @@ export const normalizeTransitionParam = <
     if (param.length === 2) {
       const [property, value] = param;
       if (durations.includes(value as any)) {
-        return [property, value, 0, defaultEasing] as any;
+        return [toKebabCase(property), value, 0, defaultEasing] as any;
       }
-      return [property, defaultDuration, 0, value] as any;
+      return [toKebabCase(property), defaultDuration, 0, value] as any;
     } if (param.length === 3) {
       const [property, value, value2] = param;
       if (easings.includes(value2 as any)) {
-        return [property, value, 0, value2] as any;
+        return [toKebabCase(property), value, 0, value2] as any;
       }
-      return [property, value, value2, defaultEasing] as any;
+      return [toKebabCase(property), value, value2, defaultEasing] as any;
     }
-    return param as any;
+    return [toKebabCase(param[0]), ...param.slice(1)] as any;
   }
-  return [param, defaultDuration, 0, defaultEasing] as any;
+  return [toKebabCase(param as unknown as string), defaultDuration, 0, defaultEasing] as any;
 };
 
 export const transitionFromParam = <

@@ -12,6 +12,7 @@ import type {
 import {
   controlDataAttribute,
   useProvideTheme,
+  useThemeControls,
 } from './useProvideTheme';
 
 interface ThemeSetContextType {
@@ -35,9 +36,10 @@ export const useProvideThemeSet = (
   const [lightClass, lightInput] = useProvideTheme(themeSet.light, 'light');
   const [darkClass, darkInput] = useProvideTheme(themeSet.dark, 'dark');
   const [selection, setSelection] = useLocalStorage<ThemeSelection>('themeSelection', 'system');
+  const systemInput = useThemeControls('system');
   useEffect(
     () => {
-      [lightInput, darkInput].forEach((input) => {
+      [lightInput, darkInput, systemInput].forEach((input) => {
         if (input) {
           const [, value] = input.split('=');
           const compare = JSON.parse(value);
@@ -52,7 +54,7 @@ export const useProvideThemeSet = (
         }
       });
     },
-    [selection, lightInput, darkInput],
+    [selection, lightInput, darkInput, systemInput],
   );
   return {
     selection: selection || 'system',

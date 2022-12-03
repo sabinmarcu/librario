@@ -1,6 +1,5 @@
-import {
+import type {
   Config,
-
 } from '../types';
 
 const config = {
@@ -8,6 +7,15 @@ const config = {
     {
       files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
       extends: ['plugin:storybook/recommended'],
+      rules: {
+        'no-underscore-dangle': 'off',
+      },
+    },
+    {
+      files: ['*.stories.@(ts|tsx)'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
     },
   ],
 } satisfies Config;

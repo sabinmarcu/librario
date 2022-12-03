@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "storybook-addon-themes": "^6.1.0"
   },
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",

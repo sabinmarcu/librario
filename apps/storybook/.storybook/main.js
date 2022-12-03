@@ -13,12 +13,15 @@ const { workspaces } = JSON.parse(
 
 const extensions = ['mdx', 'tsx'];
 const stories = workspaces.map(
-  (workspace) => `${rootPath}${workspace}/src/**/*.@(stories|story).@(${extensions.join('|')})`,
+  (workspace) => `${rootPath}${workspace}/src/**/*.stories.@(${extensions.join('|')})`,
 );
 
 module.exports = {
   stories,
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+  ],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-vite',

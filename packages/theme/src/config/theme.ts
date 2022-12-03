@@ -1,5 +1,8 @@
 import type { Palette } from './palette/index';
-import { palette as paletteSet } from './palette/index';
+import {
+  palette as paletteSet,
+  colors as colorsSet,
+} from './palette/index';
 import { staticStyles } from './style/index';
 import type { InputOf } from '../types/palette';
 import type { TransformTarget } from '../types/transform';
@@ -55,15 +58,18 @@ export const createTheme = (
   input: InputOf<Palette>,
 ) => {
   const { style: paletteStyle, palette } = compilePaletteSet(paletteSet, input);
+  const { style: colorsStyle, palette: colors } = compilePaletteSet(colorsSet, input);
   const { style, theme } = createRawTheme();
   return {
     style: {
       ...style,
       ...paletteStyle,
+      ...colorsStyle,
     },
     theme: {
       ...theme,
       palette,
+      colors,
     },
   };
 };

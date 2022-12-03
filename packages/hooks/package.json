@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
     "eslint": "^8.0.1",
     "react": "^18.2.0",
     "typescript": "^4.9.0"

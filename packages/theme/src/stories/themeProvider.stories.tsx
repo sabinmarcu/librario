@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import { ThemeSetProvider } from '../components/ThemeSetProvider';
 import { useThemeSet } from '../hooks/useProvideThemeSet';
 import type { ThemeSelection } from '../theme/index';
-import { Palette } from './palette.story';
+import { Palette } from './palette.stories';
 
 export default {
   title: 'Libs/Theme/Theme Provider',
