@@ -19,12 +19,15 @@ export const BaseButton = styled.button<ButtonBaseProps>(
     border-radius: ${theme.shape.borderRadius};
     border: none;
     background: transparent;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     border: solid 1px transparent;
+    &, * {
+      box-sizing: border-box;
+    }
     &::after {
       content: "";
       pointer-events: none;
@@ -97,6 +100,7 @@ const ContainedButton = styled(BaseButton)(
     `;
   },
 );
+
 const OutlinedButton = styled(BaseButton)(
   ({ color }) => {
     if (!color || color === 'default') {
@@ -114,7 +118,7 @@ const OutlinedButton = styled(BaseButton)(
   },
 );
 
-const variants = {
+export const variants = {
   contained: ContainedButton,
   outlined: OutlinedButton,
   text: TextButton,

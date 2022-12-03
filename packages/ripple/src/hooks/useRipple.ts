@@ -22,7 +22,7 @@ export const useRipple = <T extends HTMLElement>(
         return undefined;
       }
       return (event: MouseEvent) => {
-        const point = add(extractPosition(event));
+        const point = add(extractPosition(event, ref));
         setTimeout(remove, duration, point.id);
       };
     },

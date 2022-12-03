@@ -3,16 +3,14 @@ import {
   Global,
 } from '@emotion/react';
 import styled from '@emotion/styled';
-import type { ThemeVariant } from '@librario/theme';
 import {
   theme,
   ThemeSetProvider,
 } from '@librario/theme';
 import { useThemeSet } from '@librario/theme/src/hooks/useProvideThemeSet';
-import type { Story } from '@storybook/react';
 import { useEffect } from 'react';
 
-const ThemeSwitcher = ({ theme: themeName }: { theme: ThemeVariant }) => {
+const ThemeSwitcher = ({ theme: themeName }) => {
   const { setSelection } = useThemeSet();
   useEffect(
     () => {
@@ -31,8 +29,8 @@ const Wrapper = styled.section(`
 `);
 
 export const withTheme = (
-  StoryComponent: Story,
-  { globals: { theme: globalTheme = 'light' } }: any,
+  StoryComponent,
+  { globals: { theme: globalTheme = 'light' } },
 ) => (
   <ThemeSetProvider>
     <Global styles={css`

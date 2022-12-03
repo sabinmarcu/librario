@@ -5,18 +5,18 @@ import type {
   ComponentStory,
   Story,
 } from '@storybook/react';
-import { withTheme } from '../storybook/decorators/withTheme';
+import ReactIcon from 'mdi-react/ReactIcon';
+import React from 'react';
 
 import type {
   Colors,
   Variant,
 } from './Button';
-import { Button } from './Button';
+import { IconButton } from './IconButton';
 
 export default {
-  title: 'Components/Button',
-  component: Button,
-  decorators: [withTheme],
+  title: 'Features/Style Guide/IconButton',
+  component: IconButton,
   argTypes: {
     color: {
       control: {
@@ -31,10 +31,10 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof Button> = ({ children, ...args }) => (
-  <Button {...args}>{children || 'Button'}</Button>
+const Template: ComponentStory<typeof IconButton> = ({ children, ...args }) => (
+  <IconButton {...args}>{children || <ReactIcon />}</IconButton>
 );
 
 export const Showcase = Template.bind({});
@@ -51,7 +51,9 @@ const ShowcaseWrapper = styled.div`
   justify-content: flex-start;
 `;
 
-const ColorsOfVariant: Story<{ variant: Variant }> = ({ variant, ...props }) => (
+const ColorsOfVariant: Story<{
+  variant: Variant
+}> = ({ variant, ...props }) => (
   <ShowcaseWrapper>
     {[
       undefined,
@@ -60,14 +62,14 @@ const ColorsOfVariant: Story<{ variant: Variant }> = ({ variant, ...props }) => 
         .filter((it) => !['background'].includes(it)) as Colors[]
       ),
     ].map((color) => (
-      <Button
+      <IconButton
         {...props}
         variant={variant}
         key={color || 'default'}
         color={color}
       >
-        {color || 'default'}
-      </Button>
+        <ReactIcon />
+      </IconButton>
     ))}
   </ShowcaseWrapper>
 );

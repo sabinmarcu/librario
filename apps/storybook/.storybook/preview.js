@@ -1,3 +1,5 @@
+import { withTheme } from '../decorators/withTheme';
+
 export const globalTypes = {
   theme: {
     name: 'Theme',
@@ -18,3 +20,7 @@ export const globalTypes = {
 export const parameters = {
   controls: { expanded: true },
 };
+
+export const decorators = [
+  withTheme,
+];

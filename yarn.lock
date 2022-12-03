@@ -3381,6 +3381,7 @@ __metadata:
   dependencies:
     "@librario/eslint-config": "workspace:*"
     "@librario/ripple": "workspace:*"
+    "@librario/theme": "workspace:^"
     "@storybook/addon-actions": ^6.4.18
     "@storybook/addon-docs": ^6.4.22
     "@storybook/addon-essentials": ^6.4.18
@@ -3397,10 +3398,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/theme@workspace:*, @librario/theme@workspace:packages/theme":
+"@librario/theme@workspace:*, @librario/theme@workspace:^, @librario/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@librario/theme@workspace:packages/theme"
   dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
     "@librario/eslint-config": "workspace:*"
     "@librario/hooks": "workspace:*"
     "@types/react": ^18.0.24
@@ -3410,6 +3413,26 @@ __metadata:
     polished: ^4.2.2
     react: ^18.2.0
     type-fest: ^3.3.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
+"@librario/ui@workspace:features/ui":
+  version: 0.0.0-use.local
+  resolution: "@librario/ui@workspace:features/ui"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/eslint-config": "workspace:*"
+    "@librario/ripple": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
     typescript: ^4.9.0
   languageName: unknown
   linkType: soft
@@ -15947,6 +15970,15 @@ __metadata:
   version: 2.0.0
   resolution: "mdast-util-to-string@npm:2.0.0"
   checksum: 0b2113ada10e002fbccb014170506dabe2f2ddacaacbe4bc1045c33f986652c5a162732a2c057c5335cdb58419e2ad23e368e5be226855d4d4e280b81c4e9ec2
+  languageName: node
+  linkType: hard
+
+"mdi-react@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "mdi-react@npm:9.0.0"
+  peerDependencies:
+    react: ">=0.14.0"
+  checksum: cd9d4055060d887fcfd9d14b8bbecb75f8279794ff2554a64d78094ac89f21f30f87b0f4a916fbb6e3f0d11c76c4defce55281e325468078015b2ad6c711a8e9
   languageName: node
   linkType: hard
 
