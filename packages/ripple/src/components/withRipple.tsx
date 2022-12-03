@@ -4,6 +4,8 @@ import type {
   PropsWithChildren,
 } from 'react';
 import {
+  useEffect,
+
   Children,
   createElement,
   forwardRef,
@@ -31,6 +33,18 @@ export const withRipple = <
       const { children } = props;
       const hookProps = propsTransform ? propsTransform(props) : {};
       const ripple = useRipple<T>(ref, hookProps);
+      const { onClick, ...forwardProps } = props as any;
+      useEffect(
+        () => {
+          if (ref.current && onClick) {
+            const element = ref.current;
+            element.addEventListener('click', onClick);
+            return () => element.removeEventListener('click', onClick);
+          }
+          return undefined;
+        },
+        [ref, onClick],
+      );
       if (!ripple.shouldRender) {
         return createElement(Component, { ...props, ref }, children);
       }
@@ -38,7 +52,7 @@ export const withRipple = <
       return createElement(
         Component,
         {
-          ...props,
+          ...(onClick ? forwardProps : props),
           ref,
         },
         [
@@ -47,7 +61,13 @@ export const withRipple = <
             ({ point, id }) => createElement(
               Ripple,
               {
-                ...{ ...rippleProps, position: point } as RippleProps,
+                ...{
+                  ...rippleProps,
+                  style: {
+                    top: point.y - rippleProps.size / 2,
+                    left: point.x - rippleProps.size / 2,
+                  },
+                } as RippleProps,
                 key: `ripple-${id}`,
               },
             ),

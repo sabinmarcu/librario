@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { mergeConfig } = require('vite');
+const react = require('@vitejs/plugin-react');
 
 const rootPath = '../../../';
 const root = path.resolve(__dirname, rootPath);
@@ -37,11 +38,23 @@ module.exports = {
     },
   },
   async viteFinal(config) {
+    // Remove old react plugin to add one with emotion
+    const reactPluginIndex = config.plugins.findIndex(
+      (plugin) => Array.isArray(plugin) && plugin.every(({ name }) => name.startsWith('vite:react-')),
+    );
+    config.plugins.splice(reactPluginIndex, 1, react({
+      jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      },
+    }));
+
     /** @type {import('vite').UserConfig} */
     const newConfig = {
       esbuild: {
         target: 'es2020',
       },
+      // plugins,
     };
     return mergeConfig(config, newConfig);
   },

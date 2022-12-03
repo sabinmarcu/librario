@@ -4,6 +4,9 @@ import styled from '@emotion/styled';
 import { BaseButton } from './Base';
 
 export const OutlinedButton = styled(BaseButton)(
+  css`
+    Label: OutlinedButton;
+  `,
   ({ color }) => {
     if (!color || color === 'default') {
       return css`

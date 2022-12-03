@@ -2681,6 +2681,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/css@npm:^11.10.5":
+  version: 11.10.5
+  resolution: "@emotion/css@npm:11.10.5"
+  dependencies:
+    "@emotion/babel-plugin": ^11.10.5
+    "@emotion/cache": ^11.10.5
+    "@emotion/serialize": ^1.1.1
+    "@emotion/sheet": ^1.2.1
+    "@emotion/utils": ^1.2.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+  checksum: 2f1e953c3519cd69e40d2931cf36c3f1daf33d9f5064cb2612071bd316e38c8debb83d9520db5694ac323b6475f86004f6542919746f005fea0c14a855fc579b
+  languageName: node
+  linkType: hard
+
 "@emotion/hash@npm:^0.9.0":
   version: 0.9.0
   resolution: "@emotion/hash@npm:0.9.0"
@@ -3360,6 +3378,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@librario/ripple@workspace:packages/ripple"
   dependencies:
+    "@emotion/css": ^11.10.5
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
@@ -3375,10 +3394,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@librario/sidebar@workspace:features/sidebar":
+  version: 0.0.0-use.local
+  resolution: "@librario/sidebar@workspace:features/sidebar"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/eslint-config": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    jotai: ^1.11.0
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
 "@librario/storybook@workspace:apps/storybook":
   version: 0.0.0-use.local
   resolution: "@librario/storybook@workspace:apps/storybook"
   dependencies:
+    "@emotion/babel-plugin": ^11.10.5
+    "@emotion/react": ^11.10.5
     "@librario/eslint-config": "workspace:*"
     "@librario/ripple": "workspace:*"
     "@librario/theme": "workspace:^"
@@ -3406,6 +3448,7 @@ __metadata:
     "@emotion/styled": ^11.10.5
     "@librario/eslint-config": "workspace:*"
     "@librario/hooks": "workspace:*"
+    "@librario/utils": "workspace:*"
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     eslint: ^8.0.1
@@ -3417,7 +3460,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/ui@workspace:features/ui":
+"@librario/ui@workspace:*, @librario/ui@workspace:features/ui":
   version: 0.0.0-use.local
   resolution: "@librario/ui@workspace:features/ui"
   dependencies:
@@ -3432,6 +3475,22 @@ __metadata:
     eslint: ^8.0.1
     mdi-react: ^9.0.0
     nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
+"@librario/utils@workspace:*, @librario/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@librario/utils@workspace:packages/utils"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/eslint-config": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
     react: ^18.2.0
     typescript: ^4.9.0
   languageName: unknown
@@ -15081,6 +15140,46 @@ __metadata:
     "@sideway/formula": ^3.0.0
     "@sideway/pinpoint": ^2.0.0
   checksum: 767a847936cb66787256c4351ff86e1b9e8d7383cbe81a5c827064032c2a8e8b6e938baef5ad32c4035fe4c56e537bd90aa2a952be8a0658601c920cdeb4fb3c
+  languageName: node
+  linkType: hard
+
+"jotai@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "jotai@npm:1.11.0"
+  peerDependencies:
+    "@babel/core": "*"
+    "@babel/template": "*"
+    jotai-immer: "*"
+    jotai-optics: "*"
+    jotai-redux: "*"
+    jotai-tanstack-query: "*"
+    jotai-urql: "*"
+    jotai-valtio: "*"
+    jotai-xstate: "*"
+    jotai-zustand: "*"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@babel/template":
+      optional: true
+    jotai-immer:
+      optional: true
+    jotai-optics:
+      optional: true
+    jotai-redux:
+      optional: true
+    jotai-tanstack-query:
+      optional: true
+    jotai-urql:
+      optional: true
+    jotai-valtio:
+      optional: true
+    jotai-xstate:
+      optional: true
+    jotai-zustand:
+      optional: true
+  checksum: 9cac4074d8eded12bfcbb20bf9d3038c69060e4a56db398954351e41fb49a5ceb5fd178fb8f29d23a58d4e49ccc592bd7fc82dcce3387618b196ff32bb937634
   languageName: node
   linkType: hard
 

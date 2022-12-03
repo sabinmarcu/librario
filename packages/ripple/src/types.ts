@@ -1,6 +1,5 @@
 export type RippleProps = {
   size: number,
-  position: Point,
 } & DurationProp;
 
 export type DurationProp = { duration: number };

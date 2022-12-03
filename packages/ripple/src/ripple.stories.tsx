@@ -67,7 +67,6 @@ const Wrapper = styled.div(`
 export const Showcase: Story = () => (
   <ThemeSetProvider>
     <Wrapper>
-      <h1>Ripple</h1>
       <RenderRipple Component={styled.div()} name="div" />
       <RenderRipple Component={styled.button()} name="button" />
     </Wrapper>

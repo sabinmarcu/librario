@@ -4,6 +4,7 @@ import {
   useMemo,
 } from 'react';
 import { useMeasure } from '@librario/hooks';
+import { RippleContainerIndentifier } from '../constants';
 
 export const useRippleRef = <T extends HTMLElement>(
   ref: MutableRefObject<T | undefined>,
@@ -11,10 +12,13 @@ export const useRippleRef = <T extends HTMLElement>(
 ) => {
   useEffect(
     () => {
-      if (onClick && ref.current) {
-        const element = ref.current;
-        element.addEventListener('click', onClick);
-        return () => element.removeEventListener('click', onClick);
+      if (ref.current) {
+        ref.current.setAttribute(`data-${RippleContainerIndentifier}`, 'true');
+        if (onClick) {
+          const element = ref.current;
+          element.addEventListener('click', onClick);
+          return () => element.removeEventListener('click', onClick);
+        }
       }
       return undefined;
     },

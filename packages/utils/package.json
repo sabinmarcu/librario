@@ -1,5 +1,5 @@
 {
-  "name": "@librario/ripple",
+  "name": "@librario/utils",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -9,8 +9,6 @@
   },
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",
-    "@librario/hooks": "workspace:*",
-    "@librario/theme": "workspace:*",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.0.1",
@@ -18,10 +16,8 @@
     "typescript": "^4.9.0"
   },
   "dependencies": {
-    "@emotion/css": "^11.10.5",
     "@emotion/is-prop-valid": "^1.2.0",
     "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "nanoid": "^4.0.0"
+    "@emotion/styled": "^11.10.5"
   }
 }

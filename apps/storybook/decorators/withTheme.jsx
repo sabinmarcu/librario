@@ -1,7 +1,3 @@
-import {
-  css,
-  Global,
-} from '@emotion/react';
 import styled from '@emotion/styled';
 import {
   theme,
@@ -23,8 +19,20 @@ const ThemeSwitcher = ({ theme: themeName }) => {
 
 const Wrapper = styled.section(`  
   background: ${theme.colors.background.main};
+  color: ${theme.colors.text.main};
+  ${theme.mixins.typography.body1};
+  body:has(&) {
+    background: ${theme.colors.background.main};
+    color: ${theme.colors.text.main};
+    ${theme.mixins.typography.body1};
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
   .docs-story:has(&) {
     background: ${theme.colors.background.main};
+    color: ${theme.colors.text.main};
+    ${theme.mixins.typography.body1};
   }
 `);
 
@@ -33,13 +41,6 @@ export const withTheme = (
   { globals: { theme: globalTheme = 'light' } },
 ) => (
   <ThemeSetProvider>
-    <Global styles={css`
-      body {
-        background: ${theme.colors.background.main};
-        overflow-x: hidden;
-      }
-    `}
-    />
     <ThemeSwitcher theme={globalTheme} />
     <Wrapper>
       <StoryComponent />

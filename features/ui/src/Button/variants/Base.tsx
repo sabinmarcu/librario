@@ -37,8 +37,12 @@ export const BaseButton = styled.button<ButtonBaseProps>(
     &:not(:disabled, :focus):hover::after {
       opacity: ${theme.interactions.hoverOpacity};
     }
-    &:disabled::after {
+    &:disabled {
+      cursor: not-allowed;
       opacity: ${theme.interactions.disabledOpacity};
+      &::after {
+        opacity: ${theme.interactions.disabledOpacity};
+      }
     }
     &:focus::after {
       opacity: ${theme.interactions.selectedOpacity};

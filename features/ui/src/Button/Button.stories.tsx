@@ -6,6 +6,7 @@ import {
   compileColorsOfVariant,
   compileTemplate,
   argTypes,
+  defaultArgs,
 } from './storybook';
 
 export default {
@@ -14,15 +15,14 @@ export default {
   argTypes: {
     ...argTypes,
   },
+  args: {
+    ...defaultArgs,
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template = compileTemplate(Button, () => (<span>Button</span>));
 
 export const Showcase = Template.bind({});
-Showcase.args = {
-  color: 'primary',
-  variant: 'contained',
-};
 
 const ColorsOfVariant = compileColorsOfVariant(Button, (color) => (<span>{color || 'default'}</span>));
 
@@ -35,5 +35,5 @@ __Contained.args = { variant: 'contained' };
 export const __Outlined = ColorsOfVariant.bind({});
 __Outlined.args = { variant: 'outlined' };
 
-export const __Test = ColorsOfVariant.bind({});
-__Test.args = { variant: 'text' };
+export const __Text = ColorsOfVariant.bind({});
+__Text.args = { variant: 'text' };

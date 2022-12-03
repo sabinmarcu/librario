@@ -10,6 +10,7 @@
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",
     "@librario/hooks": "workspace:*",
+    "@librario/utils": "workspace:*",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.0.1",
