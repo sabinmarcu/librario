@@ -15,9 +15,12 @@ import type {
   ThemeSet,
   ThemeType,
 } from '../theme';
-import { theme } from '../theme';
+import {
+  themeSet,
+  theme,
+} from '../theme';
 
-const { light: { theme: { palette } } } = theme;
+const { palette } = theme;
 const PaletteSlice: FC<{ name: keyof Theme['palette'] }> = ({
   name,
 }) => {
@@ -83,7 +86,7 @@ const Showcase: FC<ShowcaseProps> = ({
 };
 
 export default {
-  title: 'Theme/Palette',
+  title: 'Libs/Theme/Palette',
   argTypes: {
     name: {
       control: {
@@ -101,12 +104,12 @@ const Template: Story<ShowcaseProps> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {
-  theme: theme.light,
+  theme: themeSet.light,
   name: 'light',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  theme: theme.dark,
+  theme: themeSet.dark,
   name: 'dark',
 };

@@ -1,6 +1,6 @@
 import {
   Button,
-} from '@librario/ui';
+} from '@librario/ripple';
 
 function App() {
   return (

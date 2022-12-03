@@ -7,17 +7,17 @@ import {
   useProvideThemeSet,
 } from '../hooks/useProvideThemeSet';
 import type { ThemeSet } from '../theme/index';
-import { theme } from '../theme/index';
+import { themeSet } from '../theme/index';
 
 interface ThemeSetProviderProps {
   themeSet?: ThemeSet;
 }
 
 export const ThemeSetProvider: FC<PropsWithChildren<ThemeSetProviderProps>> = ({
-  themeSet = theme,
+  themeSet: set = themeSet,
   children,
 }) => {
-  const context = useProvideThemeSet(themeSet);
+  const context = useProvideThemeSet(set);
   return (
     <ThemeSetContext.Provider value={context}>
       {children}

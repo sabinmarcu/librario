@@ -3,12 +3,12 @@ import {
   useContext,
   useEffect,
 } from 'react';
+import { useLocalStorage } from '@librario/hooks';
 import type {
   ThemeSelection,
   ThemeSet,
   ThemeVariant,
 } from '../theme/index';
-import { useLocalStorage } from './useLocalStorage';
 import {
   controlDataAttribute,
   useProvideTheme,

@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",
-    "@librario/ui": "workspace:*",
+    "@librario/ripple": "workspace:*",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-docs": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.18",

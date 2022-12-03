@@ -9,7 +9,7 @@ import type { ThemeSelection } from '../theme/index';
 import { Palette } from './palette.story';
 
 export default {
-  title: 'Theme/Theme Provider',
+  title: 'Libs/Theme/Theme Provider',
 } as Meta;
 
 const SetButton: Story<{ which: ThemeSelection }> = ({

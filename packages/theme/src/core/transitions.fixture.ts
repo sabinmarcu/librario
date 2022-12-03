@@ -85,4 +85,4 @@ export const transitionsFromParamsTest1 = [['color', 'shortest', 500, 'easeInOut
 export const transitionsFromParamsTest1Result = 'color var(--transitions-duration-shortest) 500ms var(--transitions-easing-ease-in-out)';
 
 export const transitionsFromParamsTest2 = [['color', 'short', 500, 'sharp'] as const, 'transform'];
-export const ransitionsFromParamsTest2Result = 'color var(--transitions-duration-short) 500ms var(--transitions-easing-sharp), transform var(--transitions-duration-shortest) 0ms var(--transitions-easing-ease-in-out)';
+export const transitionsFromParamsTest2Result = 'color var(--transitions-duration-short) 500ms var(--transitions-easing-sharp), transform var(--transitions-duration-shortest) 0ms var(--transitions-easing-ease-in-out)';

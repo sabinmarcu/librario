@@ -3,14 +3,16 @@ import type {
   Story,
 } from '@storybook/react';
 import { useProvideTheme } from '../hooks/useProvideTheme';
-import { theme as themeSet } from '../theme/index';
+import {
+  theme,
+  themeSet,
+} from '../theme/index';
 
 export default {
-  title: 'Theme/Shadows',
+  title: 'Libs/Theme/Shadows',
 } as Meta;
 
-const theme = themeSet.light;
-const { theme: { shadows } } = theme;
+const { shadows } = theme;
 
 const Shadow: Story<{ name: keyof typeof shadows }> = ({
   name,
@@ -32,7 +34,7 @@ const Shadow: Story<{ name: keyof typeof shadows }> = ({
 );
 
 export const Showcase: Story = () => {
-  const [className] = useProvideTheme(theme, 'light');
+  const [className] = useProvideTheme(themeSet.light, 'light');
   return (
     <div
       className={className}

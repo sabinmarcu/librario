@@ -3,14 +3,16 @@ import type {
   Story,
 } from '@storybook/react';
 import { useProvideTheme } from '../hooks/useProvideTheme';
-import { theme as themeSet } from '../theme/index';
+import {
+  theme,
+  themeSet,
+} from '../theme/index';
 
 export default {
-  title: 'Theme/Transitions',
+  title: 'Libs/Theme/Transitions',
 } as Meta;
 
-const theme = themeSet.light;
-const { theme: { transition: { create } } } = theme;
+const { transition: { create } } = theme;
 
 const Transition: Story<{ transition: any }> = ({
   transition,
@@ -22,7 +24,7 @@ const Transition: Story<{ transition: any }> = ({
 );
 
 export const Showcase: Story = () => {
-  const [className] = useProvideTheme(theme, 'light');
+  const [className] = useProvideTheme(themeSet.light, 'light');
   return (
     <div
       className={className}
