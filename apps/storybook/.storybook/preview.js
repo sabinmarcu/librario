@@ -2,9 +2,9 @@ import { withTheme } from '../decorators/withTheme';
 
 export const globalTypes = {
   theme: {
-    name: 'Theme',
     description: 'Global theme for components',
     defaultValue: 'system',
+    title: 'Theme',
     toolbar: {
       icon: 'circlehollow',
       items: [
@@ -12,7 +12,6 @@ export const globalTypes = {
         { value: 'dark', title: 'Dark' },
         { value: 'system', title: 'System Preferred' },
       ],
-      showName: true,
     },
   },
 };

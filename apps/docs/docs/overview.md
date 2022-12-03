@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Overview
 
-First of all, let me reiterate that anything outside the `apps/app` workspace were fun side-projects that I've been itching to attempt, and found themselves in the perfect occasion to do so. There's a [breakdown](#time-breakdown) of the time I spent on each portion of the project, and what is relevant to the project requirements and what isn't. 
+First of all, let me reiterate that anything outside the `apps/app` workspace and `features/*` packages was fun side-projects that I've been itching to attempt, and found myself in the perfect occasion to do so. There's a [breakdown](#time-breakdown) of the time I spent on each portion of the project, and what is relevant to the project requirements and what isn't. 
 
 :::warning
 What was not required for the project is **not** something I would do for a production-ready project.
@@ -13,34 +13,43 @@ What was not required for the project is **not** something I would do for a prod
 ## Project Structure
 
 Let's let the graph do the talking: 
+```mermaid
+graph TD
+  subgraph Workspaces
+    R[ root ] ==> A[ apps ]
+    R[ root ] ==> P[ packages ]
+    R[ root ] ==> F[ features ]
+    subgraph Apps
+    A --> APP{ Main App }
+    A --> DOCS{ Devlog }
+    A --> SB{ Storybook }
+    end
+    subgraph Features
+    F --> UI( Style Guide )
+    end
+    subgraph Packages
+    P --> ESL( ESLint Configs )
+    P --> THEME( Theme Engine )
+    P --> RIPPLE( Ripple Engine )
+    P --> HOOKS( Reusable Hooks )
+    end
+  end
+  style APP stroke:red,fill:orange
+  style Workspaces fill:transparent
+  style Apps fill:lightgreen
+  style Features fill:lightgreen
+```
 
 ```mermaid
 graph TD
   subgraph Legend
     direction LR
     folder[ Folder ] ~~~ app{ Application } ~~~ lib( Library )
+    style Legend fill:transparent
   end
-  subgraph Workspaces
-  R[ root ] ==> A[ apps ]
-  R[ root ] ==> P[ packages ]
-  subgraph Apps
-  A --> APP{ Main App }
-  A --> DOCS{ Devlog }
-  A --> SB{ Storybook }
-  end
-  subgraph Packages
-  P --> ESL( ESLint Configs )
-  P --> THEME( Theme Engine )
-  P --> RIPPLE( Ripple Engine )
-  P --> HOOKS( Reusable Hooks )
-  end
-  end
-  style APP stroke:red,fill:orange
-  style Legend fill:transparent
-  style Workspaces fill:transparent
 ```
 
-Okay, I didn't get `mermaid` to make something really, really nice. Essentially, I split the project into apps and libraries. As far as the project is concerned, the `apps/app` is the only bit that matters. The rest is setup, documentation, design system, and other fun distractions (like the theme engine).
+  Okay, I didn't get `mermaid` to make something really, really nice. Essentially, I split the project into apps and libraries. As far as the project is concerned, the `apps/app` and all `features/*` packages are the only bits that matter. The rest is setup, documentation, and other fun distractions (like the theme engine).
 
 ## "Stolen" Code
 
