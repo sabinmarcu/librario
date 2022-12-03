@@ -4,7 +4,7 @@ import type {
   ComponentMeta,
   ComponentStory,
 } from '@storybook/react';
-import { Overlay as OverlayComponent } from './Overlay';
+import { RawOverlay as OverlayComponent } from './Overlay';
 
 export const argTypes = {
   open: {

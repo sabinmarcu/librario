@@ -8,7 +8,7 @@ import {
 import MenuIcon from 'mdi-react/MenuIcon';
 import { IconButton } from '@librario/ui';
 import { useAtom } from 'jotai';
-import CloseCircleIcon from 'mdi-react/CloseCircleIcon';
+import CloseCircleOutlineIcon from 'mdi-react/CloseCircleOutlineIcon';
 import MenuOpenIcon from 'mdi-react/MenuOpenIcon';
 import type {
   ButtonType,
@@ -46,7 +46,7 @@ export const SidebarButton = forwardRef<HTMLButtonElement, SidebarButtonProps>(
           return icon;
         }
         switch (type) {
-        case 'close': return CloseCircleIcon;
+        case 'close': return CloseCircleOutlineIcon;
         case 'open': return MenuOpenIcon;
         default: return MenuIcon;
         }

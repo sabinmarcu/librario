@@ -19,6 +19,7 @@ export const RawSidebar: FC<RawSidebarProps> = (props) => {
   const overlayProps = useMemo(
     () => ({
       opacity: props.opacity,
+      closeOnClick: props.closeOnClick,
       open: props.open,
     }),
     [props.opacity, props.open],

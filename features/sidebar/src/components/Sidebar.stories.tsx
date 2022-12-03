@@ -20,11 +20,17 @@ import { SidebarButton } from './SidebarButton';
 export const argTypes = {
   ...overlayArgTypes,
   ...containerArgTypes,
+  closeOnClick: {
+    control: {
+      type: 'boolean',
+    },
+  },
 };
 
 export const args = {
   ...overlayArgs,
   ...containerArgs,
+  closeOnClick: true,
 };
 
 delete (argTypes as any).open;
@@ -54,6 +60,7 @@ const OverlayWrapper = styled(Paper)`
 
 const Template: ComponentStory<typeof SidebarComponent> = (props) => (
   <>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos enim error rerum ullam magni earum quaerat exercitationem libero blanditiis suscipit totam nesciunt voluptate quia, sint optio vero labore dolorum ab?</p>
     <OverlayWrapper>
       <SidebarButton />
     </OverlayWrapper>

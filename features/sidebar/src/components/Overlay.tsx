@@ -1,18 +1,27 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from '@librario/theme';
-import type { HTMLAttributes } from 'react';
+import {
+  forwardRef,
+  useMemo,
+} from 'react';
+import type {
+  HTMLAttributes,
+  ComponentProps,
+} from 'react';
+import { useAtom } from 'jotai';
 import type { OpenType } from '../types';
+import { sidebarOpen } from '../state/index';
 
-export interface OverlayProps extends
+export interface RawOverlayProps extends
   HTMLAttributes<HTMLButtonElement>,
   OpenType {
   opacity?: number;
 }
 
-export const Overlay = styled('div', {
+export const RawOverlay = styled('div', {
   shouldForwardProp: (prop) => !['opacity', 'open'].includes(prop),
-})<OverlayProps>(
+})<RawOverlayProps>(
   css`
     width: 100vw;
     height: 100vh;
@@ -36,3 +45,33 @@ export const Overlay = styled('div', {
     `;
   },
 );
+
+export interface OverlayProps extends ComponentProps<typeof RawOverlay> {
+  closeOnClick?: boolean
+}
+
+export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
+  (
+    { closeOnClick = true, ...props },
+    ref,
+  ) => {
+    const [, setOpen] = useAtom(sidebarOpen);
+    const handleClick = useMemo(
+      () => {
+        if (closeOnClick) {
+          return () => setOpen(false);
+        }
+        return undefined;
+      },
+      [closeOnClick, setOpen],
+    );
+    return (
+      <RawOverlay
+        {...props}
+        ref={ref}
+        onClick={handleClick}
+      />
+    );
+  },
+);
+Overlay.displayName = 'Overlay';
