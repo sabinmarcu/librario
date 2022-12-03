@@ -30,7 +30,9 @@ graph TD
   end
   subgraph Packages
   P --> ESL( ESLint Configs )
-  P --> T( Theme Engine )
+  P --> THEME( Theme Engine )
+  P --> RIPPLE( Ripple Engine )
+  P --> HOOKS( Reusable Hooks )
   end
   end
   style APP stroke:red,fill:orange
