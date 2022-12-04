@@ -3508,9 +3508,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/ui@workspace:*, @librario/ui@workspace:features/ui":
+"@librario/ui@workspace:*, @librario/ui@workspace:packages/ui":
   version: 0.0.0-use.local
-  resolution: "@librario/ui@workspace:features/ui"
+  resolution: "@librario/ui@workspace:packages/ui"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5
