@@ -1,3 +1,5 @@
+import { Body1 } from './body1';
+import { Body2 } from './body2';
 import { H1 } from './h1';
 import { H2 } from './h2';
 import { H3 } from './h3';
@@ -14,8 +16,12 @@ export const variants = {
   h5: H5,
   h6: H6,
   p: P,
+  body1: Body1,
+  body2: Body2,
 };
 
+export { Body1 } from './body1';
+export { Body2 } from './body2';
 export { H1 } from './h1';
 export { H2 } from './h2';
 export { H3 } from './h3';

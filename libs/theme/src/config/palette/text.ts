@@ -10,8 +10,9 @@ export const textColors = {
   secondary: (color) => {
     const hsl = parseToHsl(color);
     const { lightness } = hsl;
+    const percent = 0.2;
     return lightness > 0.5
-      ? toHsl(lighten(-0.045, color))
-      : toHsl(lighten(0.045, color));
+      ? toHsl(lighten(0 - percent, color))
+      : toHsl(lighten(percent, color));
   },
 } as const satisfies IPaletteGenerator;

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@librario/eslint-config": "workspace:*",
+    "@librario/hooks": "workspace:*",
     "@librario/ripple": "workspace:*",
     "@librario/theme": "workspace:*",
     "@types/react": "^18.0.24",

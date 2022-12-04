@@ -7,7 +7,7 @@ import {
 export const useReplicateRef = <T extends HTMLElement>(
   replicateRef: ForwardedRef<T>,
 ) => {
-  const ref = useRef<T>();
+  const ref = useRef<T>(null);
   useEffect(
     () => {
       if (replicateRef && ref.current) {
