@@ -13,6 +13,17 @@ injectGlobal(`
     background: ${theme.colors.background.main};
     color: ${theme.colors.text.main};
   }
+  body, #root {
+    flex: 1;
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  #root > * {
+    width: 100%;
+  }
   * {
     box-sizing: border-box;
   }

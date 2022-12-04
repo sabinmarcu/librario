@@ -1,6 +1,7 @@
+import { theme } from '@librario/theme';
 import type {
-  Story,
-  Meta,
+  ComponentStory,
+  ComponentMeta,
 } from '@storybook/react';
 import { BaseTypography } from './base';
 import { H1 } from './h1';
@@ -11,9 +12,25 @@ import { H5 } from './h5';
 import { H6 } from './h6';
 import { P } from './p';
 
+export const argTypes = {
+  color: {
+    control: {
+      type: 'select',
+      options: ['default', ...Object.keys(theme.palette)],
+    },
+  },
+};
+
+export const args = {
+  color: 'default',
+};
+
 export default {
   title: 'Features/Style Guide/Typography/Raw',
-} as Meta;
+  argTypes,
+  args,
+  excludeStories: ['argTypes', 'args'],
+} as ComponentMeta<typeof BaseTypography>;
 
 const toRender = [
   [BaseTypography, 'Base Typography'],
@@ -24,12 +41,24 @@ const toRender = [
   [H5, 'Heading 5'],
   [H6, 'Heading 6'],
   [P, 'Paragraph'],
-];
+] as const;
 
-export const Raw: Story = () => (
+const Template: ComponentStory<typeof BaseTypography> = ({
+  color,
+  ...props
+}) => (
   <>
     {toRender.map(([Component, name]) => (
-      <Component>{name as any}</Component>
+      <Component
+        key={name}
+        {...props}
+        color={color}
+      >
+        {name as any}
+
+      </Component>
     ))}
   </>
 );
+
+export const Raw = Template.bind({});

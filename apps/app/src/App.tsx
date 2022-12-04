@@ -1,12 +1,17 @@
 import { ThemeSetProvider } from '@librario/theme';
-import { AppBar } from './components/AppBar';
-import { AppSidebar } from './components/Sidebar';
+import {
+  RouterProvider,
+} from 'react-router-dom';
+import { AppBar } from './components/layout/AppBar';
+import { AppSidebar } from './components/layout/Sidebar';
+import { router } from './routes/index';
 
 function App() {
   return (
     <ThemeSetProvider>
       <AppBar />
       <AppSidebar />
+      <RouterProvider router={router} />
     </ThemeSetProvider>
   );
 }

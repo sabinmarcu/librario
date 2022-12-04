@@ -5,10 +5,16 @@ import type {
 import { Typography } from './Typography';
 import { variants } from './variants/index';
 
+import {
+  argTypes,
+  args,
+} from './variants/Variants.stories';
+
 export default {
   title: 'Features/Style Guide/Typography/Component',
   component: Typography,
   argTypes: {
+    ...argTypes,
     variant: {
       options: Object.keys(variants),
       mapping: Object.keys(variants),
@@ -20,6 +26,7 @@ export default {
     },
   },
   args: {
+    ...args,
     variant: 'p',
   },
 } as ComponentMeta<typeof Typography>;

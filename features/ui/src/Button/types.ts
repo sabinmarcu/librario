@@ -3,11 +3,12 @@ import type {
   DetailedHTMLProps,
   ButtonHTMLAttributes,
 } from 'react';
-import type { Theme } from '@librario/theme';
 import type { StyledComponent } from '@emotion/styled';
+import type { Colors } from '../types';
+
+export type { Colors } from '../types';
 
 export type Variant = 'contained' | 'outlined' | 'text' | 'default';
-export type Colors = keyof Theme['palette'] | 'default';
 
 export interface ButtonBaseProps extends HTMLAttributes<HTMLButtonElement> {
   color?: Colors;
