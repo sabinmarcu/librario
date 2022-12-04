@@ -3471,6 +3471,7 @@ __metadata:
     "@emotion/styled": ^11.10.5
     "@librario/book": "workspace:*"
     "@librario/eslint-config": "workspace:*"
+    "@librario/hooks": "workspace:*"
     "@librario/search": "workspace:*"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"

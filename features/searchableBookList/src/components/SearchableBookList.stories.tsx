@@ -8,9 +8,9 @@ import {
   useAtomValue,
   useSetAtom,
 } from 'jotai';
-import { useEffect } from 'react';
 import { books } from '@librario/book';
 import { Search } from '@librario/search';
+import { usePipeJotai } from '@librario/hooks';
 import { SearchableBookList as Component } from './SearchableBookList';
 
 export default {
@@ -31,16 +31,16 @@ const disabledAtom = atom(false);
 const useIsDisabled = () => useAtomValue(disabledAtom);
 
 const Template: Story = ({ disabled }: any) => {
-  useAtomValue(books);
-  const setIsDisabled = useSetAtom(disabledAtom);
-  useEffect(
-    () => { setIsDisabled(disabled); },
-    [disabled, setIsDisabled],
+  const isbns = useAtomValue(books);
+  usePipeJotai(
+    disabled,
+    useSetAtom(disabledAtom),
   );
   return (
     <Flex direction="column">
       <Search />
       <Component
+        isbnList={isbns}
         useDisabledHook={useIsDisabled}
         ActionsComponent={({ isbn }) => <div>{`Actions: ${isbn}`}</div>}
         StatusComponent={({ isbn }) => <div>{`Status: ${isbn}`}</div>}

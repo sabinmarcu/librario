@@ -2,7 +2,6 @@ import type {
   ComponentProps,
   FC,
 } from 'react';
-import { useEffect } from 'react';
 import {
   BookList,
 } from '@librario/book';
@@ -10,23 +9,30 @@ import {
   searchState,
 } from '@librario/search';
 import {
-  useAtom,
   useAtomValue,
+  useSetAtom,
 } from 'jotai';
-import { filteredBooks } from '../state/filteredBooks';
+import { usePipeJotai } from '@librario/hooks';
+import {
+  booksToFilter,
+  filteredBooks,
+  filteredBooksList,
+} from '../state/filteredBooks';
 
-export interface SearchableBookListProps extends
-  Omit<ComponentProps<typeof BookList>, 'isbnList'> {}
+export type SearchableBookListProps = ComponentProps<typeof BookList>;
 
-export const SearchableBookList: FC<SearchableBookListProps> = (props) => {
-  const search = useAtomValue(searchState);
-  const [isbnList, setIsbnlist] = useAtom(filteredBooks);
-  useEffect(
-    () => { setIsbnlist(search); },
-    [search],
+export const SearchableBookList: FC<SearchableBookListProps> = ({ isbnList, ...props }) => {
+  usePipeJotai(
+    isbnList,
+    useSetAtom(booksToFilter),
   );
+  usePipeJotai(
+    useAtomValue(searchState),
+    useSetAtom(filteredBooks),
+  );
+  const filteredIsbnList = useAtomValue(filteredBooksList);
   return (
-    <BookList {...props} isbnList={isbnList} />
+    <BookList {...props} isbnList={filteredIsbnList} />
   );
 };
 SearchableBookList.displayName = 'SearchableBookList';
