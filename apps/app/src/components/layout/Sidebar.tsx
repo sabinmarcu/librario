@@ -29,11 +29,9 @@ SidebarContainer.defaultProps = {
 export const AppSidebar: FC = () => (
   <Sidebar>
     <Toolbar>
-      <SidebarContainer>
-        <Flex grow align="center" justify="space-between">
-          <SidebarButton type="close" />
-          <ThemeSelector />
-        </Flex>
+      <SidebarContainer grow align="center" justify="space-between">
+        <SidebarButton type="close" />
+        <ThemeSelector />
       </SidebarContainer>
     </Toolbar>
     <SidebarContainer>

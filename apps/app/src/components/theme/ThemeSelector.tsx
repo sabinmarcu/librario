@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import { ThemeSelectorButton } from './ThemeSelectorButton';
 
 export const ThemeSelector:FC = () => (
-  <Flex grow center>
+  <Flex center>
     <ButtonGroup>
       <ThemeSelectorButton which="light" />
       <ThemeSelectorButton which="dark" />
