@@ -44,6 +44,7 @@ const Card = ({ book: { isbn, name } = {}, disabled }: { book: any, disabled: bo
     </BookCardContent>
     <BookTitle variant="h4">{name}</BookTitle>
     <BookStatus variant="h6" elevation={10}>In stock: 5</BookStatus>
+    <BookStatus variant="h6" elevation={10} color="success" position="left">Price: &euro;30</BookStatus>
     <BookActions>
       <Button variant="contained" color="primary">Add</Button>
       <Button variant="outlined" color="secondary">Remove</Button>

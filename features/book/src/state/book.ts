@@ -42,18 +42,20 @@ export const book = atomFamily(
     } as const satisfies BookType),
     (get, set, update: Partial<BookType>) => {
       const {
+        isbn: updateIsbn,
         name: updateName,
         price: updatePrice,
         copies: updateCopies,
       } = update;
+      const outputIsbn = updateIsbn ?? isbn;
       if (updateName) {
-        set(bookName(isbn), updateName);
+        set(bookName(outputIsbn), updateName);
       }
       if (updatePrice) {
-        set(bookPrice(isbn), updatePrice);
+        set(bookPrice(outputIsbn), updatePrice);
       }
       if (updateCopies) {
-        set(bookCopies(isbn), updateCopies);
+        set(bookCopies(outputIsbn), updateCopies);
       }
     },
   ),

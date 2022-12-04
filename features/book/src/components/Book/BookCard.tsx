@@ -74,12 +74,13 @@ export const BookCardWrapper = styled.article<BookCardProps>(`
   [${cardStatus}] {
     top: 3rem;
     bottom: auto;
-    left: auto;
+    left: var(--position-left);
+    right: var(--position-right);
     margin: 0;
     border-radius: ${theme.shape.borderRadius};
     transform: none;
     opacity: 0;
-    transition: ${theme.transition.create('opacity', 'right')};
+    transition: ${theme.transition.create('opacity', 'right', 'left')};
     transform-origin: right center;
   }
   z-index: 0;
@@ -102,7 +103,8 @@ export const BookCardWrapper = styled.article<BookCardProps>(`
       color: hsl(0, 0%, 100%);
     }
     [${cardStatus}] {
-      right: -1rem;
+      left: var(--offset-left);
+      right: var(--offset-right);
       opacity: 1;
     }
     transform: translate3d(0, 0, 0) scale(1.2);

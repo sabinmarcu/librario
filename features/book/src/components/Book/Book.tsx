@@ -25,7 +25,7 @@ export const Book: FC<BookProps> = ({
   ActionsComponent,
   useDisabledHook = () => false,
 }) => {
-  const { name } = useAtomValue(book(isbn));
+  const { name, price } = useAtomValue(book(isbn));
   const disabled = useDisabledHook(isbn);
   return (
     <BookCard disabled={disabled}>
@@ -33,6 +33,10 @@ export const Book: FC<BookProps> = ({
         <BookCover isbn={isbn} />
       </BookCardContent>
       <BookTitle variant="h4">{name}</BookTitle>
+      <BookStatus variant="h6" elevation={10} position="left">
+        &euro;
+        {price}
+      </BookStatus>
       {StatusComponent
         ? (
           <BookStatus variant="h6" elevation={10}>

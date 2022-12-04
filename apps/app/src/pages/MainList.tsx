@@ -12,12 +12,23 @@ import {
   useAtomValue,
 } from 'jotai';
 import type { FC } from 'react';
-import { useMemo } from 'react';
+import {
+  useCallback,
+  useMemo,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCardIsDisabled } from '../hooks/useCardIsDisabled';
 
 const actionsMap = {
   user: ({ isbn }) => <UserQuickActions isbn={isbn} />,
-  admin: ({ isbn }) => <AdminQuickActions isbn={isbn} />,
+  admin: ({ isbn }) => {
+    const navigate = useNavigate();
+    const onEdit = useCallback(
+      () => navigate(`/app/edit/${isbn}`),
+      [navigate, isbn],
+    );
+    return (<AdminQuickActions isbn={isbn} onEdit={onEdit} />);
+  },
 } as const satisfies Record<AccountType, FC<ISBNProps>>;
 
 export const Actions: FC<ISBNProps> = ({ isbn }) => {

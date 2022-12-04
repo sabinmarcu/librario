@@ -5,7 +5,6 @@ import { theme } from '@librario/theme';
 import {
   Button,
   Flex,
-  Typography,
 } from '@librario/ui';
 import { useAtomValue } from 'jotai';
 import type { FC } from 'react';
@@ -33,7 +32,11 @@ export const UserMenu: FC = () => (
   </Flex>
 );
 export const AdminMenu: FC = () => (
-  <Typography variant="body1" color="warning">TBD</Typography>
+  <Flex>
+    <AppLink to="/app/new">
+      <NavigationButton variant="outlined">Add Book</NavigationButton>
+    </AppLink>
+  </Flex>
 );
 
 export const menuMap = {

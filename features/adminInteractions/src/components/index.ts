@@ -4,3 +4,4 @@ export type {
 export {
   AdminQuickActions,
 } from './AdminQuickActions';
+export * from './EditBook';

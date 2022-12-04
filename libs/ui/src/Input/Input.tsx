@@ -90,14 +90,14 @@ export type InputProps = ComponentProps<typeof InputElement> & {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({
-    label, onChange, onBlur, onFocus, ...props
+    label, onChange, onBlur, onFocus, value, ...props
   }, ref) => {
     const id = useMemo(
       () => (label ? `input-${nanoid()}` : undefined),
       [label],
     );
     const ownRef = useReplicateRef(ref);
-    const [text, setText] = useState('');
+    const [text, setText] = useState(`${value}` || '');
     const [hasFocus, setFocused] = useState(false);
     const handleBlur = useCallback<FocusEventHandler<HTMLInputElement>>(
       (event) => {
@@ -119,8 +119,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     );
     const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
       (event) => {
-        const { target: { value } } = event;
-        setText(value);
+        const { target: { value: inputValue } } = event;
+        setText(inputValue);
         onChange?.(event);
       },
       [onChange],
@@ -138,6 +138,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           : undefined}
         <InputElement
           {...props}
+          value={value}
           aria-labelledby={id}
           ref={ownRef}
           onChange={handleChange}

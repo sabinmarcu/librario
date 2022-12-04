@@ -3364,6 +3364,7 @@ __metadata:
     "@types/react-dom": ^18.0.8
     "@vitejs/plugin-react": ^2.2.0
     jotai: ^1.11.0
+    nanoid: ^4.0.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.4.4

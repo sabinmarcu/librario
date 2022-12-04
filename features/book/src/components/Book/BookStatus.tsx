@@ -5,9 +5,21 @@ import {
 } from '@librario/ui';
 import { cardStatus } from './constants';
 
-export const BookStatus = styled(Typography)`
+export interface BookStatusProps {
+  position?: 'left' | 'right'
+  offset?: number
+}
+
+export const BookStatus = styled(Typography, {
+  shouldForwardProp: (prop) => !['position'].includes(prop),
+})<BookStatusProps>(`
   padding: 0.5rem;
-`.withComponent(Paper);
+`, ({ position = 'right', offset = 1 }) => `
+  --position-left: ${position === 'left' ? 0 : 'auto'};
+  --offset-left: ${position === 'left' ? `${0 - offset}rem` : 'auto'};
+  --position-right: ${position === 'right' ? 0 : 'auto'};
+  --offset-right: ${position === 'right' ? `${0 - offset}rem` : 'auto'};
+`).withComponent(Paper);
 BookStatus.defaultProps = {
   variant: 'h6',
   elevation: 2,
