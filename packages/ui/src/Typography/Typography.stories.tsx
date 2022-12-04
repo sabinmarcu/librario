@@ -11,7 +11,7 @@ import {
 } from './variants/Variants.stories';
 
 export default {
-  title: 'Features/Style Guide/Typography/Component',
+  title: 'Features/Design System/Typography/Component',
   component: Typography,
   argTypes: {
     ...argTypes,

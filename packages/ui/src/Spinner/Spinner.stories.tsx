@@ -8,7 +8,7 @@ import { Paper } from '../Paper/Paper';
 import { Spinner as Component } from './Spinner';
 
 export default {
-  title: 'Features/Style Guide/Spinner',
+  title: 'Features/Design System/Spinner',
   component: Component,
   argTypes: {
     size: {

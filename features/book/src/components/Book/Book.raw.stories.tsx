@@ -37,7 +37,7 @@ export default {
   },
 } as Meta;
 
-const Card = ({ book: { isbn, name } = {}, disabled }: { book: any, disabled: any }) => (
+const Card = ({ book: { isbn, name } = {}, disabled }: { book: any, disabled: boolean }) => (
   <BookCard disabled={disabled}>
     <BookCardContent>
       <BookCover isbn={isbn} />

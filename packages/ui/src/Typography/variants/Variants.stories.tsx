@@ -26,7 +26,7 @@ export const args = {
 };
 
 export default {
-  title: 'Features/Style Guide/Typography/Raw',
+  title: 'Features/Design System/Typography/Raw',
   argTypes,
   args,
   excludeStories: ['argTypes', 'args'],
