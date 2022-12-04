@@ -3341,7 +3341,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/book@workspace:features/book":
+"@librario/book@workspace:*, @librario/book@workspace:features/book":
   version: 0.0.0-use.local
   resolution: "@librario/book@workspace:features/book"
   dependencies:
@@ -3441,7 +3441,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/search@workspace:features/search":
+"@librario/search@workspace:*, @librario/search@workspace:features/search":
   version: 0.0.0-use.local
   resolution: "@librario/search@workspace:features/search"
   dependencies:
@@ -3449,6 +3449,29 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@librario/eslint-config": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    jotai: ^1.11.0
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
+"@librario/searchable-book-list@workspace:features/searchableBookList":
+  version: 0.0.0-use.local
+  resolution: "@librario/searchable-book-list@workspace:features/searchableBookList"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/book": "workspace:*"
+    "@librario/eslint-config": "workspace:*"
+    "@librario/search": "workspace:*"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"
     "@types/react": ^18.0.24

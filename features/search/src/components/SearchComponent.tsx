@@ -12,7 +12,7 @@ import {
 import { useAtom } from 'jotai';
 import { searchState } from '../state/searchState';
 
-export const SearchComponent = forwardRef<HTMLInputElement, ComponentProps<typeof Input>>(
+export const Search = forwardRef<HTMLInputElement, ComponentProps<typeof Input>>(
   (props, ref) => {
     const [search, setSearch] = useAtom(searchState);
     const onChange = useCallback<ChangeEventHandler<HTMLInputElement>>(

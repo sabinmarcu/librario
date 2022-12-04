@@ -22,7 +22,8 @@
     "dev": "turbo run dev --parallel",
     "docs": "turbo run dev --filter=docs",
     "sb": "turbo run dev --filter=storybook",
-    "app": "turbo run dev --filter=app"
+    "app": "turbo run dev --filter=app",
+    "refresh": "yarn && yarn tscmono"
   },
   "engines": {
     "node": ">=14.0.0"
