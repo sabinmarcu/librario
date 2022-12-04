@@ -1,3 +1,4 @@
+import { withJotaiDevtools } from '../decorators/withJotaiDevtools';
 import { withTheme } from '../decorators/withTheme';
 
 export const globalTypes = {
@@ -22,4 +23,5 @@ export const parameters = {
 
 export const decorators = [
   withTheme,
+  withJotaiDevtools,
 ];

@@ -75,12 +75,12 @@ export type LendSeedType =
 & Omit<LendType, 'extraPrice' | 'returnPrice'>
 & { userId: string };
 
-export const lendings = atomWithStorage<string[]>('lendings', []);
+export const lendingsList = atomWithStorage<string[]>('lendings', []);
 
-export const lendList = atom(
-  (get) => get(lendings),
+export const lendings = atom(
+  (get) => get(lendingsList),
   (get, set, update: string | LendSeedType) => {
-    const existingLendings = get(lendings);
+    const existingLendings = get(lendingsList);
     const {
       isbn,
       price,
@@ -107,7 +107,7 @@ export const lendList = atom(
     set(lendPrice(newLendId), price);
     set(lendAccount(newLendId), userId);
     set(lendStatus(newLendId), status);
-    set(lendings, [...existingLendings, newLendId]);
+    set(lendingsList, [...existingLendings, newLendId]);
   },
 );
 
@@ -127,7 +127,7 @@ export const lend = atomFamily(
 
 let seeded = false;
 // Seed data
-lendList.onMount = (setSelf) => {
+lendings.onMount = (setSelf) => {
   if (!seeded) {
     seeded = true;
     seedLends.forEach(setSelf);

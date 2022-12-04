@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.10.5",
     "@librario/account": "workspace:*",
     "@librario/book": "workspace:*",
+    "@librario/lend": "workspace:*",
     "@librario/search": "workspace:*",
     "@librario/searchable-book-list": "workspace:*",
     "@librario/sidebar": "workspace:*",

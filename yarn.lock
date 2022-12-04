@@ -3327,6 +3327,7 @@ __metadata:
     "@emotion/styled": ^11.10.5
     "@librario/account": "workspace:*"
     "@librario/book": "workspace:*"
+    "@librario/lend": "workspace:*"
     "@librario/search": "workspace:*"
     "@librario/searchable-book-list": "workspace:*"
     "@librario/sidebar": "workspace:*"
@@ -3424,7 +3425,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/lend@workspace:features/lend":
+"@librario/lend@workspace:*, @librario/lend@workspace:features/lend":
   version: 0.0.0-use.local
   resolution: "@librario/lend@workspace:features/lend"
   dependencies:
@@ -3551,6 +3552,7 @@ __metadata:
     "@storybook/builder-vite": ^0.1.33
     "@storybook/react": ^6.4.18
     "@vitejs/plugin-react": ^1.3.2
+    jotai: ^1.11.0
     react: ^18.0.0
     react-dom: ^18.0.0
     serve: ^13.0.2

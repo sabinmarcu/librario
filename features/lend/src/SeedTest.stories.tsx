@@ -21,7 +21,7 @@ import {
   useAtomValue,
 } from 'jotai';
 import type { FC } from 'react';
-import { lendList } from './state/lend';
+import { lendings } from './state/lend';
 import {
   activeLendingsOfIsbn,
   availableBooksOfIsbn,
@@ -58,7 +58,7 @@ const BookStatusPanelItem = styled(Paper)(`
 
 const BookStatus: FC<{ isbn: string }> = ({ isbn }) => {
   const total = useAtomValue(bookCopies(isbn));
-  const lendings = useAtomValue(lendingsOfIsbn(isbn));
+  const lended = useAtomValue(lendingsOfIsbn(isbn));
   const actives = useAtomValue(activeLendingsOfIsbn(isbn));
   const available = useAtomValue(availableBooksOfIsbn(isbn));
   const can = useAtomValue(canLend(isbn));
@@ -66,7 +66,7 @@ const BookStatus: FC<{ isbn: string }> = ({ isbn }) => {
     <BookStatusPanelItem grow direction="column" gap={1}>
       <Typography variant="h4">{`Book: ${isbn}`}</Typography>
       <Typography variant="body1">{`Total: ${total}`}</Typography>
-      <Typography variant="body1">{`Lendings: ${lendings.length}`}</Typography>
+      <Typography variant="body1">{`Lendings: ${lended.length}`}</Typography>
       <Typography variant="body1">{`Active: ${actives.length}`}</Typography>
       <Typography variant="body1">{`Available: ${available}`}</Typography>
       <Typography variant="body1">{`Can lend: ${can}`}</Typography>
@@ -81,7 +81,7 @@ const Panel = styled(Paper)`
 const Template: Story<ArgsType> = ({ account }) => {
   const booksList = useAtomValue(books);
   useAtomValue(accounts);
-  const list = useAtomValue(lendList);
+  const list = useAtomValue(lendings);
   const accountLendings = useAtomValue(lendingsOfAccount(account));
 
   return (

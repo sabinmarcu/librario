@@ -8,7 +8,7 @@ import {
 import {
   lend,
   lendAccount,
-  lendings,
+  lendingsList,
   lendIsbn,
   lendStatus,
 } from './lend';
@@ -16,7 +16,7 @@ import {
 export const lendingsOfIsbn = atomFamily(
   (isbn: string) => atom(
     (get) => {
-      const list = get(lendings)
+      const list = get(lendingsList)
         .filter(
           (lending) => get(lendIsbn(lending)) === isbn,
         );
@@ -45,7 +45,7 @@ export const availableBooksOfIsbn = atomFamily(
 
 export const lendingsOfAccount = atomFamily(
   (userId: string) => atom(
-    (get) => get(lendings)
+    (get) => get(lendingsList)
       .filter(
         (lending) => get(lendAccount(lending)) === userId,
       )

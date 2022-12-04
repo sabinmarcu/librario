@@ -31,10 +31,10 @@ export const useLocalStorage = <T extends unknown>(
   }, [getValueFromLocalStorage]);
 
   const changeHandler = useCallback(
-    (e) => {
+    (e: StorageEvent) => {
       const { key: changeKey, newValue } = e;
       if (key === changeKey) {
-        setStoredValue(JSON.parse(newValue));
+        setStoredValue(JSON.parse(newValue || ''));
       }
     },
     [key],

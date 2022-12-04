@@ -12,6 +12,7 @@
     "@emotion/babel-plugin": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@librario/theme": "workspace:^",
+    "jotai": "^1.11.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "storybook-addon-themes": "^6.1.0"
