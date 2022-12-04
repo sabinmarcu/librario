@@ -6,3 +6,4 @@ export * from './Typography';
 export * from './Toolbar';
 export * from './Layout';
 export * from './Spinner';
+export * from './Input';
