@@ -15,7 +15,9 @@ export type FlexProps = {
   gap?: number;
 } & (Alignment | Center);
 
-export const Flex = styled.div<FlexProps>(
+export const Flex = styled('div', {
+  shouldForwardProp: (prop) => !['direction', 'wrap', 'grow', 'shrink', 'gap', 'center'].includes(prop),
+})<FlexProps>(
   `
     display: flex;
   `,

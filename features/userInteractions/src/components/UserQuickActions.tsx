@@ -24,7 +24,8 @@ export const UserQuickActions: FC<UserQuickActionsProps> = ({
 }) => {
   const lend = useSetAtom(lendings);
   const { id: userId } = useAtomValue(currentUser)!;
-  const hasLentBook = useAtomValue(hasLent([isbn, userId]));
+  const query = useMemo(() => [isbn, userId], [isbn, userId]);
+  const hasLentBook = useAtomValue(hasLent(query));
   const canLend = useMemo(
     () => !hasLentBook,
     [hasLentBook],

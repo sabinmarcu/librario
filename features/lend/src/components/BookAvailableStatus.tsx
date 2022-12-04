@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { bookCopies } from '@librario/book';
-import { Typography } from '@librario/ui';
+import {
+  Flex,
+  Typography,
+} from '@librario/ui';
 import { useAtomValue } from 'jotai';
 import type {
   ComponentProps,
@@ -26,9 +29,21 @@ export const BookAvailableStatus: FC<BookAvailableStatusProps> = ({
   const available = useAtomValue(availableBooksOfIsbn(isbn));
   return (
     <RawBookAvailableStatus {...props} variant="body2">
-      {detailed
-        ? `Available: ${available} / ${total}`
-        : `Available: ${available}`}
+      <Flex gap={0.5}>
+        <Typography variant="body2">Available:</Typography>
+        <Typography
+          variant="body2"
+          color={
+            (available < 3 && 'error')
+          || (available < 5 && 'warning')
+          || 'success'
+          }
+        >
+          {detailed
+            ? `${available} / ${total}`
+            : `${available}`}
+        </Typography>
+      </Flex>
     </RawBookAvailableStatus>
   );
 };

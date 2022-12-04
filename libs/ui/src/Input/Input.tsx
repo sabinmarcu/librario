@@ -28,7 +28,9 @@ export const commonStyles = `
   color: ${theme.colors.text.main};
 `;
 
-export const InputWrapper = styled(Surface)<InteractionProps>(`
+export const InputWrapper = styled(Surface, {
+  shouldForwardProp: (prop) => !['hasText', 'hasFocus'].includes(prop),
+})<InteractionProps>(`
   position: relative;
   border: solid 2px currentColor;
   transition: ${theme.transition.create('borderColor', 'boxShadow', 'background')};
@@ -40,7 +42,9 @@ export const InputWrapper = styled(Surface)<InteractionProps>(`
   border-color: transparent;
 `).withComponent(Flex);
 
-export const InputLabel = styled('label')<InteractionProps>(`
+export const InputLabel = styled('label', {
+  shouldForwardProp: (prop) => !['hasText', 'hasFocus'].includes(prop),
+})<InteractionProps>(`
   ${commonStyles}
   ${theme.mixins.typography.body2}
   position: absolute;

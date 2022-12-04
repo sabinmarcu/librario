@@ -33,7 +33,9 @@ Wrapper.defaultProps = {
   [cardCover]: true,
 } as any;
 
-export const Layer = styled.div<Visible>(`
+export const Layer = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'active',
+})<Visible>(`
     position: absolute;
     inset: 0x;
     width: 100%;

@@ -17,7 +17,10 @@ export interface RawToolbarProps {
   active?: boolean;
 }
 
-export const RawToolbar = styled(Surface.withComponent('header'))<RawToolbarProps>(
+export const RawToolbar = styled(
+  Surface,
+  { shouldForwardProp: (prop) => prop !== 'active' },
+)<RawToolbarProps>(
   `
     position: sticky;
     inset: 0 0 auto 0;
@@ -34,7 +37,7 @@ export const RawToolbar = styled(Surface.withComponent('header'))<RawToolbarProp
     `
     : ''
   ),
-);
+).withComponent('header');
 
 export interface ToolbarProps extends PropsWithChildren {
   trackScroll?: boolean,
