@@ -9,7 +9,7 @@ import { Paper } from './Paper';
 
 const numShadows = Object.keys(theme.shadows).length;
 export default {
-  title: 'Features/Design System/Paper',
+  title: 'Libs/Design System/Paper',
   component: Paper,
   argTypes: {
     elevation: {

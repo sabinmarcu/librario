@@ -10,7 +10,7 @@ import {
 } from './storybook';
 
 export default {
-  title: 'Features/Design System/Button',
+  title: 'Libs/Design System/Button',
   component: Button,
   argTypes: {
     ...argTypes,

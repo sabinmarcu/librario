@@ -9,7 +9,7 @@ import { Surface } from './Surface';
 
 const numShadows = Object.keys(theme.shadows).length;
 export default {
-  title: 'Features/Design System/Surface',
+  title: 'Libs/Design System/Surface',
   component: Surface,
   argTypes: {
     elevation: {

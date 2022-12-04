@@ -11,7 +11,7 @@ import {
 } from './storybook';
 
 export default {
-  title: 'Features/Design System/IconButton',
+  title: 'Libs/Design System/IconButton',
   component: IconButton,
   argTypes: {
     ...argTypes,

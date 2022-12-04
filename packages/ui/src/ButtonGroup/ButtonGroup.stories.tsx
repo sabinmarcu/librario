@@ -13,7 +13,7 @@ import { Surface } from '../Surface/Surface';
 import { ButtonGroup } from './ButtonGroup';
 
 export default {
-  title: 'Features/Design System/ButtonGroup',
+  title: 'Libs/Design System/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     color: {
