@@ -25,7 +25,7 @@ export const bookCopies = atomFamily(
   ),
 );
 
-export type Book = {
+export type BookType = {
   isbn: string,
   name: string,
   price: number,
@@ -39,8 +39,8 @@ export const book = atomFamily(
       name: get(bookName(isbn)),
       price: get(bookPrice(isbn)),
       copies: get(bookCopies(isbn)),
-    } as const satisfies Book),
-    (get, set, update: Partial<Book>) => {
+    } as const satisfies BookType),
+    (get, set, update: Partial<BookType>) => {
       const {
         name: updateName,
         price: updatePrice,

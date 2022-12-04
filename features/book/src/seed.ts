@@ -1,4 +1,4 @@
-import type { Book } from './state/book';
+import type { BookType } from './state/book';
 
 export const seedBooks = [
   {
@@ -25,4 +25,4 @@ export const seedBooks = [
     price: 40,
     copies: 2,
   },
-] as const satisfies Readonly<Book[]>;
+] as const satisfies Readonly<BookType[]>;

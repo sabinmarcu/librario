@@ -8,7 +8,7 @@ import {
   Paper,
 } from '@librario/ui';
 import { BookCover as Component } from './BookCover';
-import { seedBooks } from '../seed';
+import { seedBooks } from '../../seed';
 
 export default {
   title: 'Features/Book/Book Cover',

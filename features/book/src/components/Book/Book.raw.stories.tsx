@@ -8,14 +8,14 @@ import type {
 } from '@storybook/react';
 import { BookCard } from './BookCard';
 import { BookActions } from './BookActions';
-import { seedBooks } from '../seed';
+import { seedBooks } from '../../seed';
 import { BookCover } from './BookCover';
 import { BookCardContent } from './BookCardContent';
 import { BookTitle } from './BookTitle';
 import { BookStatus } from './BookStatus';
 
 export default {
-  title: 'Features/Book/Book',
+  title: 'Features/Book/Book Raw',
   argTypes: {
     book: {
       options: seedBooks.map((_, idx) => idx),
@@ -53,4 +53,4 @@ const Template: Story = (props: any) => (
   </Flex>
 );
 
-export const Book = Template.bind({});
+export const BookRaw = Template.bind({});

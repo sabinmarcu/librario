@@ -9,9 +9,9 @@ import {
   forwardRef,
 } from 'react';
 import AlertCircleOutlineIcon from 'mdi-react/AlertCircleOutlineIcon';
-import type { CoverImageProps } from '../hooks/useCoverImage';
-import { useCoverImage } from '../hooks/useCoverImage';
 import { cardCover } from './constants';
+import type { ISBNProps } from '../../types';
+import { useCoverImage } from '../../hooks/useCoverImage';
 
 export interface Visible {
   active: boolean;
@@ -57,7 +57,7 @@ export const Error = styled(Layer)(`
   }
 `).withComponent(Flex);
 
-export interface BookCoverProps extends Omit<ComponentProps<typeof BookRaw>, 'isbn' | 'active'>, CoverImageProps {}
+export interface BookCoverProps extends Omit<ComponentProps<typeof BookRaw>, 'isbn' | 'active'>, ISBNProps {}
 export const BookCover = forwardRef<HTMLImageElement, BookCoverProps>(
   ({ isbn, ...props }, ref) => {
     const [src, loading, error] = useCoverImage({ isbn });

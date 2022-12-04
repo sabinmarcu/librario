@@ -3,13 +3,11 @@ import {
   useMemo,
   useState,
 } from 'react';
+import type { ISBNProps } from '../types';
 
-export interface CoverImageProps {
-  isbn: string;
-}
 export const useCoverImage = ({
   isbn,
-}: CoverImageProps) => {
+}: ISBNProps) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState<string>();
