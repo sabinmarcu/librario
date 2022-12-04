@@ -3380,9 +3380,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/eslint-config@workspace:*, @librario/eslint-config@workspace:packages/eslint-config-custom":
+"@librario/eslint-config@workspace:*, @librario/eslint-config@workspace:libs/eslint-config-custom":
   version: 0.0.0-use.local
-  resolution: "@librario/eslint-config@workspace:packages/eslint-config-custom"
+  resolution: "@librario/eslint-config@workspace:libs/eslint-config-custom"
   dependencies:
     "@babel/eslint-parser": ^7.19.1
     "@babel/plugin-syntax-import-assertions": ^7.20.0
@@ -3405,9 +3405,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/hooks@workspace:*, @librario/hooks@workspace:packages/hooks":
+"@librario/hooks@workspace:*, @librario/hooks@workspace:libs/hooks":
   version: 0.0.0-use.local
-  resolution: "@librario/hooks@workspace:packages/hooks"
+  resolution: "@librario/hooks@workspace:libs/hooks"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5
@@ -3421,9 +3421,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/ripple@workspace:*, @librario/ripple@workspace:packages/ripple":
+"@librario/ripple@workspace:*, @librario/ripple@workspace:libs/ripple":
   version: 0.0.0-use.local
-  resolution: "@librario/ripple@workspace:packages/ripple"
+  resolution: "@librario/ripple@workspace:libs/ripple"
   dependencies:
     "@emotion/css": ^11.10.5
     "@emotion/is-prop-valid": ^1.2.0
@@ -3488,9 +3488,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/theme@workspace:*, @librario/theme@workspace:^, @librario/theme@workspace:packages/theme":
+"@librario/theme@workspace:*, @librario/theme@workspace:^, @librario/theme@workspace:libs/theme":
   version: 0.0.0-use.local
-  resolution: "@librario/theme@workspace:packages/theme"
+  resolution: "@librario/theme@workspace:libs/theme"
   dependencies:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
@@ -3508,9 +3508,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/ui@workspace:*, @librario/ui@workspace:packages/ui":
+"@librario/ui@workspace:*, @librario/ui@workspace:libs/ui":
   version: 0.0.0-use.local
-  resolution: "@librario/ui@workspace:packages/ui"
+  resolution: "@librario/ui@workspace:libs/ui"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5
@@ -3528,9 +3528,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/utils@workspace:*, @librario/utils@workspace:packages/utils":
+"@librario/utils@workspace:*, @librario/utils@workspace:libs/utils":
   version: 0.0.0-use.local
-  resolution: "@librario/utils@workspace:packages/utils"
+  resolution: "@librario/utils@workspace:libs/utils"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.0
     "@emotion/react": ^11.10.5

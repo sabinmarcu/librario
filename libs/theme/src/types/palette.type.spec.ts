@@ -38,13 +38,13 @@ type PaletteGeneratorExample2Test = PaletteGeneratorTest<PaletteGeneratorExample
 
 type StyleOfGeneratorTest1 = StyleOfGenerator<'primary', PaletteGeneratorExample1>;
 //     ^? type StyleOfGeneratorTest1 = {
-//            "--color-primary-test": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-primary-test": HSLColor;
 //        }
 
 type StyleOfGeneratorTest2 = StyleOfGenerator<'secondary', PaletteGeneratorExample2>;
 //     ^? type StyleOfGeneratorTest2 = {
-//            "--color-secondary-something-awesome": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-secondary-awesome-stuff": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-secondary-something-awesome": HSLColor;
+//            "--color-secondary-awesome-stuff": HSLColor;
 //        }
 
 type PaletteOfGeneratorTest1 = PaletteOfGenerator<'primary', PaletteGeneratorExample1>;
@@ -92,10 +92,10 @@ type PaletteSetTest4 = PaletteSetTest<PaletteSetExample>;
 
 type StyleOfTest1 = StyleOf<PaletteSetExample>;
 //     ^? type StyleOfTest1 = {
-//            "--color-example1-test": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-example1-test": HSLColor;
 //        } & {
-//            "--color-example2-something-awesome": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-example2-awesome-stuff": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-example2-something-awesome": HSLColor;
+//            "--color-example2-awesome-stuff": HSLColor;
 //        }
 
 type KeysOfStyleOfTest1 = keyof StyleOfTest1;
@@ -103,19 +103,17 @@ type KeysOfStyleOfTest1 = keyof StyleOfTest1;
 
 type PaletteOfTest1 = PaletteOf<PaletteSetExample>;
 //     ^? type PaletteOfTest1 = {
-//            palette: {
-//                example1: {
-//                    test: "var(--color-example1-test)";
-//                };
-//                example2: {
-//                    somethingAwesome: "var(--color-example2-something-awesome)";
-//                    awesomeStuff: "var(--color-example2-awesome-stuff)";
-//                };
+//            example1: {
+//                test: "var(--color-example1-test)";
+//            };
+//            example2: {
+//                somethingAwesome: "var(--color-example2-something-awesome)";
+//                awesomeStuff: "var(--color-example2-awesome-stuff)";
 //            };
 //        }
 
 type InputOfTest1 = InputOf<PaletteSetExample>;
 //     ^? type InputOfTest1 = {
-//            example1: `hsl(${number}, ${number}%, ${number}%)`;
-//            example2: `hsl(${number}, ${number}%, ${number}%)`;
+//            example1: HSLColor;
+//            example2: HSLColor;
 //        }

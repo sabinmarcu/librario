@@ -13,7 +13,7 @@
       "path": "./features/tsconfig.build.json"
     },
     {
-      "path": "./packages/tsconfig.build.json"
+      "path": "./libs/tsconfig.build.json"
     }
   ]
 }

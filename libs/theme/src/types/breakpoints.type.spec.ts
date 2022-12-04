@@ -26,10 +26,10 @@ type CSSBreakpointVariableOfTest2 = CSSBreakpointVariableOf<'testThing'>;
 //     ^? type CSSBreakpointVariableOfTest2 = "--breakpoint-test-thing"
 
 type PixelsOfTest1 = PixelsOf<1>;
-//     ^? type PixelsOfTest1 = "1px"
+//     ^? type PixelsOfTest1 = PixelsOf<1>
 
 type PixelsOfTest2 = PixelsOf<42>;
-//     ^? type PixelsOfTest2 = "42px"
+//     ^? type PixelsOfTest2 = PixelsOf<42>
 
 type BreakpointsTest = {
   test: 1,

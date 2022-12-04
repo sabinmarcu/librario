@@ -21,14 +21,14 @@ const cssColorVariableOfTest3 = cssColorVariableOf('someAwesome Stuff');
 
 const compileGeneratorStyleTest1 = compileGeneratorStyle('primary', paletteTest.primary, paletteInput.primary);
 //     ^? const compileGeneratorStyleTest1: {
-//            "--color-primary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-primary-lighter": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-primary-main": HSLColor;
+//            "--color-primary-lighter": HSLColor;
 //        }
 
 const compileGeneratorStyleOfTest2 = compileGeneratorStyle('secondary', paletteTest.secondary, paletteInput.secondary);
 //     ^? const compileGeneratorStyleOfTest2: {
-//            "--color-secondary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-secondary-darker": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-secondary-main": HSLColor;
+//            "--color-secondary-darker": HSLColor;
 //        }
 
 const compileGeneratorPaletteTest1 = compileGeneratorPalette('primary', paletteTest.primary);
@@ -45,24 +45,24 @@ const compileGeneratorPaletteOfTest2 = compileGeneratorPalette('secondary', pale
 
 const compileGeneratorPaletteSliceOfTest1 = compileGeneratorPaletteSlice('primary', paletteTest.primary);
 //     ^? const compileGeneratorPaletteSliceOfTest1: PaletteSliceOfGenerator<"primary", {
-//            readonly main: (color: `hsl(${number}, ${number}%, ${number}%)`) => `hsl(${number}, ${number}%, ${number}%)`;
-//            readonly lighter: (color: `hsl(${number}, ${number}%, ${number}%)`) => `hsl(${number}, ${number}%, ${number}%)`;
+//            readonly main: (color: HSLColor) => HSLColor;
+//            readonly lighter: (color: HSLColor) => HSLColor;
 //        }>
 
 const compileGeneratorPaletteSliceOfTest2 = compileGeneratorPaletteSlice('secondary', paletteTest.secondary);
 //     ^? const compileGeneratorPaletteSliceOfTest2: PaletteSliceOfGenerator<"secondary", {
-//            readonly main: (color: `hsl(${number}, ${number}%, ${number}%)`) => `hsl(${number}, ${number}%, ${number}%)`;
-//            readonly darker: (color: `hsl(${number}, ${number}%, ${number}%)`) => `hsl(${number}, ${number}%, ${number}%)`;
+//            readonly main: (color: HSLColor) => HSLColor;
+//            readonly darker: (color: HSLColor) => HSLColor;
 //        }>
 
 const compilePaletteSetTest = compilePaletteSet(paletteTest, paletteInput);
 //     ^? const compilePaletteSetTest: {
 //            style: {
-//                "--color-primary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//                "--color-primary-lighter": `hsl(${number}, ${number}%, ${number}%)`;
+//                "--color-primary-main": HSLColor;
+//                "--color-primary-lighter": HSLColor;
 //            } & {
-//                "--color-secondary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//                "--color-secondary-darker": `hsl(${number}, ${number}%, ${number}%)`;
+//                "--color-secondary-main": HSLColor;
+//                "--color-secondary-darker": HSLColor;
 //            };
 //            palette: {
 //                ...;
@@ -71,23 +71,21 @@ const compilePaletteSetTest = compilePaletteSet(paletteTest, paletteInput);
 
 const compilePaletteSetTestStyle = compilePaletteSetTest.style;
 //     ^? const compilePaletteSetTestStyle: {
-//            "--color-primary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-primary-lighter": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-primary-main": HSLColor;
+//            "--color-primary-lighter": HSLColor;
 //        } & {
-//            "--color-secondary-main": `hsl(${number}, ${number}%, ${number}%)`;
-//            "--color-secondary-darker": `hsl(${number}, ${number}%, ${number}%)`;
+//            "--color-secondary-main": HSLColor;
+//            "--color-secondary-darker": HSLColor;
 //        }
 
 const compilePaletteSetTestPalette = compilePaletteSetTest.palette;
 //     ^? const compilePaletteSetTestPalette: {
-//            palette: {
-//                primary: {
-//                    main: "var(--color-primary-main)";
-//                    lighter: "var(--color-primary-lighter)";
-//                };
-//                secondary: {
-//                    main: "var(--color-secondary-main)";
-//                    darker: "var(--color-secondary-darker)";
-//                };
+//            primary: {
+//                main: "var(--color-primary-main)";
+//                lighter: "var(--color-primary-lighter)";
+//            };
+//            secondary: {
+//                main: "var(--color-secondary-main)";
+//                darker: "var(--color-secondary-darker)";
 //            };
 //        }
