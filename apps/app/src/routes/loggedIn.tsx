@@ -1,7 +1,7 @@
 import { Typography } from '@librario/ui';
 import type { RouteObject } from 'react-router-dom';
 import { LoggedInRoute } from '../components/routes/LoggedInRoute';
-import { LoggedInPage } from '../pages/LoggedIn';
+import { MainListPage } from '../pages/MainList';
 
 export const TestRoute = () => (
   <Typography variant="h1" color="success">
@@ -15,7 +15,7 @@ export const loggedInRoutes = [
     children: [
       {
         path: '/app',
-        element: <LoggedInPage />,
+        element: <MainListPage />,
       },
       {
         path: 'test',

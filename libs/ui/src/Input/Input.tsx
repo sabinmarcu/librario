@@ -30,13 +30,14 @@ export const commonStyles = `
 
 export const InputWrapper = styled(Surface)<InteractionProps>(`
   position: relative;
-  border: solid 2px ${theme.colors.background.paper};
+  border: solid 2px currentColor;
   transition: ${theme.transition.create('borderColor', 'boxShadow', 'background')};
   border-radius: ${theme.shape.borderRadius};
   background: transparent;
 `, ({ hasFocus }) => hasFocus && `
   box-shadow: ${theme.shadows[5]};
   background: ${theme.colors.background.paper};
+  border-color: transparent;
 `).withComponent(Flex);
 
 export const InputLabel = styled('label')<InteractionProps>(`
@@ -98,7 +99,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       (event) => {
         setFocused(false);
         if (onBlur) {
-          onBlur(event);
+          onBlur?.(event);
         }
       },
       [onBlur],
@@ -107,7 +108,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       (event) => {
         setFocused(true);
         if (onBlur) {
-          onFocus(event);
+          onFocus?.(event);
         }
       },
       [onFocus],

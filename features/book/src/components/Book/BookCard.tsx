@@ -79,8 +79,10 @@ export const BookCardWrapper = styled.article<BookCardProps>(`
     border-radius: ${theme.shape.borderRadius};
     transform: none;
     opacity: 0;
-    transition: ${theme.transition.create('opacity', 'transform')};
+    transition: ${theme.transition.create('opacity', 'right')};
+    transform-origin: right center;
   }
+  z-index: 0;
   &:hover {
     ${theme.breakpoints.mediaQuery('media', { lowerThan: 'md' })} {
       & {
@@ -100,11 +102,12 @@ export const BookCardWrapper = styled.article<BookCardProps>(`
       color: hsl(0, 0%, 100%);
     }
     [${cardStatus}] {
-      transform: translateX(30%);
+      right: -1rem;
       opacity: 1;
     }
-    transform: scale(1.2);
+    transform: translate3d(0, 0, 0) scale(1.2);
     box-shadow: ${theme.shadows[15]};
+    z-index: 1;
   }
 `,
 ({ disabled }) => `

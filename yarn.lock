@@ -3326,6 +3326,9 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@librario/account": "workspace:*"
+    "@librario/book": "workspace:*"
+    "@librario/search": "workspace:*"
+    "@librario/searchable-book-list": "workspace:*"
     "@librario/sidebar": "workspace:*"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"
@@ -3462,7 +3465,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/searchable-book-list@workspace:features/searchableBookList":
+"@librario/searchable-book-list@workspace:*, @librario/searchable-book-list@workspace:features/searchableBookList":
   version: 0.0.0-use.local
   resolution: "@librario/searchable-book-list@workspace:features/searchableBookList"
   dependencies:

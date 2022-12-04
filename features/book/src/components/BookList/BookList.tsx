@@ -15,7 +15,7 @@ export type BookListProps =
 };
 
 export const BookListWrapper = styled(Flex)(
-  ({ gap = 3 }) => `
+  ({ gap = 4 }) => `
     gap: ${gap}rem;
     padding: ${gap}rem;
   `,

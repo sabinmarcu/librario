@@ -6,7 +6,7 @@ import {
 import { cardStatus } from './constants';
 
 export const BookStatus = styled(Typography)`
-  padding: 1rem;
+  padding: 0.5rem;
 `.withComponent(Paper);
 BookStatus.defaultProps = {
   variant: 'h6',
