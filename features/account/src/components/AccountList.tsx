@@ -61,7 +61,6 @@ export const AccountDetails: FC = () => {
 export const LoginStatusWrapper = styled(Surface)`
   border: ${loginStatusBorder};
   border-radius: ${theme.shape.borderRadius};
-  margin-bottom: 1rem;
 `;
 LoginStatusWrapper.defaultProps = {
   elevation: 1,

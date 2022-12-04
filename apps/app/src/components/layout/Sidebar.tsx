@@ -10,6 +10,7 @@ import {
   Toolbar,
 } from '@librario/ui';
 import type { FC } from 'react';
+import { ThemeSelector } from '../theme/ThemeSelector';
 
 export interface SidebarContentProps {
   toolbar?: boolean;
@@ -19,7 +20,11 @@ export const SidebarContainer = styled(Container)<SidebarContentProps>(
   ({ toolbar }) => ({
     padding: toolbar ? '0 1rem' : '2rem 1rem',
   }),
-);
+).withComponent(Flex);
+SidebarContainer.defaultProps = {
+  gap: 1,
+  direction: 'column',
+};
 
 export const AppSidebar: FC = () => (
   <Sidebar>
@@ -27,6 +32,7 @@ export const AppSidebar: FC = () => (
       <SidebarContainer>
         <Flex grow align="center" justify="space-between">
           <SidebarButton type="close" />
+          <ThemeSelector />
         </Flex>
       </SidebarContainer>
     </Toolbar>

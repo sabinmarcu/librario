@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
-import type { ReactElement } from 'react';
+import type {
+  ReactElement,
+} from 'react';
 import type { Button } from '../Button/Button';
 import type { IconButton } from '../Button/IconButton';
 import { Flex } from '../Layout/Flex';
