@@ -27,6 +27,7 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<typeof Input>>
         ref={ref}
         value={search}
         onChange={onChange}
+        type="search"
       />
     );
   },

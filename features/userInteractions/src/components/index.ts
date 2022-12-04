@@ -4,3 +4,4 @@ export type {
 export {
   UserQuickActions,
 } from './UserQuickActions';
+export * from './LentList';

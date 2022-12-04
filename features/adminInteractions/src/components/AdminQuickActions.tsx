@@ -34,7 +34,9 @@ export const AdminQuickActions: FC<AdminQuickActionsProps> = ({
         <Button variant="contained" color="primary" onClick={onEdit}>Edit</Button>
         <ButtonGroup>
           <Button variant="outlined" color="success" onClick={addOne}>Add one</Button>
-          <Button variant="outlined" color="warning" disabled={!available} onClick={removeOne}>Remove one</Button>
+          <Button variant="outlined" color="warning" disabled={!available} onClick={removeOne}>
+            {available ? 'Remove one' : 'Out of stock'}
+          </Button>
         </ButtonGroup>
       </Flex>
     </Flex>

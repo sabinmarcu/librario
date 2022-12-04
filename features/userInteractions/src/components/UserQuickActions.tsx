@@ -1,9 +1,18 @@
 import type { FC } from 'react';
-import { useCallback } from 'react';
-import { useSetAtom } from 'jotai';
-import { lendings } from '@librario/lend';
+import {
+  useMemo,
+} from 'react';
+import {
+  useAtomValue,
+  useSetAtom,
+} from 'jotai';
+import {
+  lendings,
+  hasLent,
+} from '@librario/lend';
 import { Button } from '@librario/ui';
 import type { ISBNProps } from '@librario/book';
+import { currentUser } from '@librario/account';
 
 export interface UserQuickActionsProps extends ISBNProps {
   onLend?: () => void;
@@ -14,20 +23,32 @@ export const UserQuickActions: FC<UserQuickActionsProps> = ({
   isbn,
 }) => {
   const lend = useSetAtom(lendings);
-  const onClick = useCallback(
+  const { id: userId } = useAtomValue(currentUser)!;
+  const hasLentBook = useAtomValue(hasLent([isbn, userId]));
+  const canLend = useMemo(
+    () => !hasLentBook,
+    [hasLentBook],
+  );
+  const onClick = useMemo(
     () => {
-      lend(isbn);
-      onLend?.();
+      if (!canLend) {
+        return undefined;
+      }
+      return () => {
+        lend(isbn);
+        onLend?.();
+      };
     },
-    [onLend, lend, isbn],
+    [onLend, lend, isbn, canLend],
   );
   return (
     <Button
       variant="contained"
       color="primary"
+      disabled={!canLend}
       onClick={onClick}
     >
-      Lend This Book
+      {canLend ? 'Lend this book' : 'Already lent'}
     </Button>
   );
 };

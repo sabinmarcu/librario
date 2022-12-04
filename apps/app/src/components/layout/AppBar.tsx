@@ -9,7 +9,9 @@ import { SidebarButton } from '@librario/sidebar';
 import { Search } from '@librario/search';
 import styled from '@emotion/styled';
 import { theme } from '@librario/theme';
-import { GoHomeButton } from '../routes/GoHome';
+import { IfLoggedIn } from '@librario/account';
+import { GoHomeButton } from './GoHome';
+import { NavigationMenu } from './NavigationMenu';
 
 export const SearchContainer = styled(Flex)`
   color: ${theme.colors.text.muted};
@@ -24,6 +26,9 @@ export const AppBar: FC = () => (
         <SearchContainer grow>
           <Search />
         </SearchContainer>
+        <IfLoggedIn>
+          <NavigationMenu />
+        </IfLoggedIn>
         <SidebarButton type="open" />
       </Flex>
     </Container>

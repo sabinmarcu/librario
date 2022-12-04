@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import { forwardRef } from 'react';
 import { useMatch } from 'react-router-dom';
 import HomeVariantOutlineIcon from 'mdi-react/HomeVariantOutlineIcon';
-import { AppLink } from './AppLink';
+import { AppLink } from '../routes/AppLink';
 
 export const GoHomeButton = forwardRef<HTMLButtonElement, ComponentProps<typeof IconButton>>(
   (props, ref) => {

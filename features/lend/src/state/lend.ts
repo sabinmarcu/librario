@@ -112,9 +112,9 @@ export const lendings = atom(
 );
 
 export const lend = atomFamily(
-  (lendId: string) => atom(
+  (lendId: string) => atom<LendType>(
     (get) => ({
-      lendId,
+      id: lendId,
       date: get(lendDate(lendId)),
       isbn: get(lendIsbn(lendId)),
       price: get(lendPrice(lendId)),

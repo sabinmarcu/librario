@@ -26,7 +26,7 @@ import {
   activeLendingsOfIsbn,
   availableBooksOfIsbn,
   canLend,
-  lendingsOfAccount,
+  fullLendingsOfAccount,
   lendingsOfIsbn,
 } from './state/lendings';
 
@@ -82,7 +82,7 @@ const Template: Story<ArgsType> = ({ account }) => {
   const booksList = useAtomValue(books);
   useAtomValue(accounts);
   const list = useAtomValue(lendings);
-  const accountLendings = useAtomValue(lendingsOfAccount(account));
+  const accountLendings = useAtomValue(fullLendingsOfAccount(account));
 
   return (
     <Flex gap={2}>

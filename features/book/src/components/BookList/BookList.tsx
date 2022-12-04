@@ -1,5 +1,8 @@
 import styled from '@emotion/styled';
-import { Flex } from '@librario/ui';
+import {
+  Flex,
+  Typography,
+} from '@librario/ui';
 import type {
   ComponentProps,
   FC,
@@ -11,7 +14,7 @@ export type BookListProps =
 & Omit<BookProps, 'isbn'>
 & ComponentProps<typeof Flex>
 & {
-  isbnList: string[]
+  isbnList: string[],
 };
 
 export const BookListWrapper = styled(Flex)(
@@ -27,7 +30,7 @@ export const BookList: FC<BookListProps> = ({
   ActionsComponent,
   useDisabledHook,
   ...props
-}) => (
+}) => (isbnList.length ? (
   <BookListWrapper wrap="wrap" {...props}>
     {isbnList.map((isbn) => (
       <Book
@@ -39,4 +42,9 @@ export const BookList: FC<BookListProps> = ({
       />
     ))}
   </BookListWrapper>
-);
+) : (
+  <Flex grow center direction="column" style={{ width: '100%' }}>
+    <Typography variant="h1" color="error">Nothing to see here!</Typography>
+    <Typography variant="h2" color="info">Try searching for something else.</Typography>
+  </Flex>
+));

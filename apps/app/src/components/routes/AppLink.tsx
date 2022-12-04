@@ -5,5 +5,5 @@ export const AppLink = styled(NavLink)`
   &:visited {
     color: inherit;
     text-decoration: none;
-  }
+  } 
 `;

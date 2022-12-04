@@ -3517,7 +3517,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@librario/searchable-book-list@workspace:*, @librario/searchable-book-list@workspace:features/searchableBookList":
+"@librario/searchable-book-list@workspace:*, @librario/searchable-book-list@workspace:^, @librario/searchable-book-list@workspace:features/searchableBookList":
   version: 0.0.0-use.local
   resolution: "@librario/searchable-book-list@workspace:features/searchableBookList"
   dependencies:
@@ -3642,10 +3642,12 @@ __metadata:
     "@librario/eslint-config": "workspace:*"
     "@librario/hooks": "workspace:*"
     "@librario/lend": "workspace:*"
+    "@librario/searchable-book-list": "workspace:^"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
+    date-fns: ^2.29.3
     eslint: ^8.0.1
     jotai: ^1.11.0
     mdi-react: ^9.0.0

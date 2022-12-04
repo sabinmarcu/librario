@@ -49,9 +49,30 @@ export const lendingsOfAccount = atomFamily(
       .filter(
         (lending) => get(lendAccount(lending)) === userId,
       )
-      .map(
-        (lending) => get(lend(lending)),
+      .filter(
+        (lending) => get(lendStatus(lending)) === 'active',
       ),
+  ),
+);
+
+export const fullLendingsOfAccount = atomFamily(
+  (userId: string) => atom(
+    (get) => get(lendingsOfAccount(userId))
+      .map((lending) => get(lend(lending))),
+  ),
+);
+
+export const lendingOfUserAndIsbn = atomFamily(
+  ([isbn, userId]: [isbn: string, userId: string]) => atom(
+    (get) => get(lendingsOfAccount(userId)).find(
+      (lending) => get(lendIsbn(lending)) === isbn,
+    ),
+  ),
+);
+
+export const hasLent = atomFamily(
+  ([isbn, userId]: [isbn: string, userId: string]) => atom(
+    (get) => !!get(lendingOfUserAndIsbn([isbn, userId])),
   ),
 );
 

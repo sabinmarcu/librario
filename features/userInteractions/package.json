@@ -25,6 +25,8 @@
     "@emotion/is-prop-valid": "^1.2.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@librario/searchable-book-list": "workspace:^",
+    "date-fns": "^2.29.3",
     "jotai": "^1.11.0",
     "mdi-react": "^9.0.0",
     "nanoid": "^4.0.0"
