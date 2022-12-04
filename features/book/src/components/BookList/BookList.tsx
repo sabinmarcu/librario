@@ -25,6 +25,7 @@ export const BookList: FC<BookListProps> = ({
   isbnList,
   StatusComponent,
   ActionsComponent,
+  useDisabledHook,
   ...props
 }) => (
   <BookListWrapper wrap="wrap" {...props}>
@@ -32,6 +33,7 @@ export const BookList: FC<BookListProps> = ({
       <Book
         isbn={isbn}
         key={isbn}
+        useDisabledHook={useDisabledHook}
         StatusComponent={StatusComponent}
         ActionsComponent={ActionsComponent}
       />

@@ -25,14 +25,20 @@ export default {
         labels: seedBooks.map((book) => book.name),
       },
     },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     book: seedBooks[0],
+    disabled: false,
   },
 } as Meta;
 
-const Card = ({ book: { isbn, name } = {} }: { book: any }) => (
-  <BookCard>
+const Card = ({ book: { isbn, name } = {}, disabled }: { book: any, disabled: any }) => (
+  <BookCard disabled={disabled}>
     <BookCardContent>
       <BookCover isbn={isbn} />
     </BookCardContent>

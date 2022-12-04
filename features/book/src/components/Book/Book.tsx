@@ -16,16 +16,19 @@ import { BookStatus } from './BookStatus';
 export interface BookProps extends ISBNProps {
   StatusComponent?: StatusComponent,
   ActionsComponent?: ActionsComponent,
+  useDisabledHook?: (isbn: string) => boolean,
 }
 
 export const Book: FC<BookProps> = ({
   isbn,
   StatusComponent,
   ActionsComponent,
+  useDisabledHook = () => false,
 }) => {
   const { name } = useAtomValue(book(isbn));
+  const disabled = useDisabledHook(isbn);
   return (
-    <BookCard>
+    <BookCard disabled={disabled}>
       <BookCardContent>
         <BookCover isbn={isbn} />
       </BookCardContent>

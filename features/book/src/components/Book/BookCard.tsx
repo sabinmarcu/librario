@@ -4,6 +4,8 @@ import type {
   FC,
   PropsWithChildren,
 } from 'react';
+import MinusCircleOffOutlineIcon from 'mdi-react/MinusCircleOffOutlineIcon';
+import { Flex } from '@librario/ui';
 import {
   cardActions,
   cardCover,
@@ -12,7 +14,23 @@ import {
   cardTitle,
 } from './constants';
 
-export const BookCardWrapper = styled.article`
+export interface BookCardProps {
+  disabled?: boolean
+}
+
+export const BookDisabledBanner = styled(Flex)`
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  color: ${theme.palette.error.main};
+  opacity: 0.8 !important;
+  & > * {
+    width: 75%;
+    height: 75%;
+  }
+`;
+
+export const BookCardWrapper = styled.article<BookCardProps>(`
   width: 20rem;
   height: 30rem;
   transition: ${theme.transition.create('transform', 'boxShadow')};
@@ -88,12 +106,24 @@ export const BookCardWrapper = styled.article`
     transform: scale(1.2);
     box-shadow: ${theme.shadows[15]};
   }
-`;
+`,
+({ disabled }) => `
+  pointer-events: ${disabled ? 'none' : 'all'};
+  & > * {
+    opacity: ${disabled ? 0.4 : 1};
+  }
+`);
 
-export const BookCard: FC<PropsWithChildren> = ({
+export const BookCard: FC<PropsWithChildren<BookCardProps>> = ({
   children,
+  disabled,
 }) => (
-  <BookCardWrapper>
+  <BookCardWrapper disabled={disabled}>
     {children}
+    {disabled ? (
+      <BookDisabledBanner center>
+        <MinusCircleOffOutlineIcon />
+      </BookDisabledBanner>
+    ) : undefined}
   </BookCardWrapper>
 );
