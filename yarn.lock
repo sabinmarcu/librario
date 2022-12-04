@@ -3317,6 +3317,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@librario/admin-interactions@workspace:*, @librario/admin-interactions@workspace:features/adminInteractions":
+  version: 0.0.0-use.local
+  resolution: "@librario/admin-interactions@workspace:features/adminInteractions"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/account": "workspace:*"
+    "@librario/book": "workspace:*"
+    "@librario/eslint-config": "workspace:*"
+    "@librario/hooks": "workspace:*"
+    "@librario/lend": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    jotai: ^1.11.0
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
 "@librario/app@workspace:apps/app":
   version: 0.0.0-use.local
   resolution: "@librario/app@workspace:apps/app"
@@ -3326,6 +3351,7 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@librario/account": "workspace:*"
+    "@librario/admin-interactions": "workspace:*"
     "@librario/book": "workspace:*"
     "@librario/lend": "workspace:*"
     "@librario/search": "workspace:*"
@@ -3333,6 +3359,7 @@ __metadata:
     "@librario/sidebar": "workspace:*"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"
+    "@librario/user-interactions": "workspace:*"
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     "@vitejs/plugin-react": ^2.2.0
@@ -3596,6 +3623,31 @@ __metadata:
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     eslint: ^8.0.1
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
+"@librario/user-interactions@workspace:*, @librario/user-interactions@workspace:features/userInteractions":
+  version: 0.0.0-use.local
+  resolution: "@librario/user-interactions@workspace:features/userInteractions"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/account": "workspace:*"
+    "@librario/book": "workspace:*"
+    "@librario/eslint-config": "workspace:*"
+    "@librario/hooks": "workspace:*"
+    "@librario/lend": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    jotai: ^1.11.0
     mdi-react: ^9.0.0
     nanoid: ^4.0.0
     react: ^18.2.0

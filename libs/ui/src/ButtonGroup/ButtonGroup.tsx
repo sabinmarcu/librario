@@ -14,16 +14,16 @@ export interface ButtonGroupProps {
 export const ButtonGroup = styled(Flex)<ButtonGroupProps>`
   & > button:not(:first-of-type, :last-of-type) {
     border-radius: 0;
-    border-right: none;
+    border-left: none;
   }
   & > button:first-of-type {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border-right: none;
   }
   & > button:last-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    border-left: none;
   }
 `;
 
