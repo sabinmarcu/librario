@@ -3341,6 +3341,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@librario/book@workspace:features/book":
+  version: 0.0.0-use.local
+  resolution: "@librario/book@workspace:features/book"
+  dependencies:
+    "@emotion/is-prop-valid": ^1.2.0
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@librario/eslint-config": "workspace:*"
+    "@librario/theme": "workspace:*"
+    "@librario/ui": "workspace:*"
+    "@types/react": ^18.0.24
+    "@types/react-dom": ^18.0.8
+    eslint: ^8.0.1
+    jotai: ^1.11.0
+    mdi-react: ^9.0.0
+    nanoid: ^4.0.0
+    react: ^18.2.0
+    typescript: ^4.9.0
+  languageName: unknown
+  linkType: soft
+
 "@librario/docs@workspace:apps/docs":
   version: 0.0.0-use.local
   resolution: "@librario/docs@workspace:apps/docs"
@@ -3430,6 +3451,7 @@ __metadata:
     "@librario/eslint-config": "workspace:*"
     "@librario/theme": "workspace:*"
     "@librario/ui": "workspace:*"
+    "@librario/utils": "workspace:*"
     "@types/react": ^18.0.24
     "@types/react-dom": ^18.0.8
     eslint: ^8.0.1

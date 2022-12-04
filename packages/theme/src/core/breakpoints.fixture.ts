@@ -1,7 +1,5 @@
 import type {
   Breakpoints,
-  BreakpointsPropsOf,
-  BreakpointsResult,
   BreakpointsStyleOf,
   MediaType,
   OrientationType,
@@ -23,14 +21,14 @@ export const breakpointsStyle = {
 } as const satisfies BreakpointsStyleOf<typeof breakpointsTest>;
 
 export const breakpointsProps = {
-  test: 'var(--breakpoint-test)',
-  testThing: 'var(--breakpoint-test-thing)',
-} as const satisfies BreakpointsPropsOf<typeof breakpointsTest>;
+  test: '1px',
+  testThing: '42px',
+} as const;
 
 export const breakpointsResult = {
   style: breakpointsStyle,
   props: breakpointsProps,
-} as const satisfies BreakpointsResult<typeof breakpointsTest>;
+} as const;
 
 export type RawQueryTestType = {
   breakpoints: TestBreakpoints,

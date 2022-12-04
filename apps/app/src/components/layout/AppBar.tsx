@@ -7,6 +7,7 @@ import {
 } from '@librario/ui';
 import { SidebarButton } from '@librario/sidebar';
 import styled from '@emotion/styled';
+import { GoHomeButton } from '../routes/GoHome';
 
 export const Title = styled(Typography)`
   flex: 1;
@@ -15,7 +16,8 @@ export const Title = styled(Typography)`
 export const AppBar: FC = () => (
   <Toolbar>
     <Container>
-      <Flex grow align="center" justify="space-between">
+      <Flex grow align="center" justify="space-between" gap={1}>
+        <GoHomeButton />
         <Title variant="h4">Librario</Title>
         <SidebarButton type="open" />
       </Flex>

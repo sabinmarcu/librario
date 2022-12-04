@@ -23,7 +23,6 @@ import type {
 } from '../types/css';
 import {
   cssVariableOf,
-  cssVariableStatement,
 } from '../utils/css';
 
 export const cssBreakpointVariableOf = <
@@ -60,15 +59,13 @@ export const breakpointsPropsOf = moize(
   <
     BPs extends Breakpoints,
   >(breakpoints: BPs): BreakpointsPropsOf<BPs> => {
-    const style = Object.keys(breakpoints)
+    const style = Object.entries(breakpoints)
       .reduce<BreakpointsPropsOf<BPs>>(
-        (acc, key) => {
-          const value = cssVariableStatement(
-            cssBreakpointVariableOf(key),
-          );
+        (acc, [key, value]) => {
+          const pixels = pixelsOf(value);
           return {
             ...acc,
-            [key]: value,
+            [key]: pixels,
           };
         },
         {} as any,

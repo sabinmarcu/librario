@@ -9,7 +9,7 @@ export const BaseButton = styled.button<ButtonBaseProps>(
     border-radius: ${theme.shape.borderRadius};
     border: none;
     background: transparent;
-    padding: 0.8rem 1rem;
+    padding: 0.5rem 0.8rem;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;

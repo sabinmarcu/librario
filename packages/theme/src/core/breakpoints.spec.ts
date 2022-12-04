@@ -179,12 +179,12 @@ describe('breakpoints', () => {
       {
         breakpoints: breakpointsTest,
         input: 'test',
-        output: '(max-width: var(--breakpoint-test))',
+        output: '(max-width: 1px)',
       },
       {
         breakpoints: breakpointsTest,
         input: 'testThing',
-        output: '(max-width: var(--breakpoint-test-thing))',
+        output: '(max-width: 42px)',
       },
     ] satisfies RawQueryTestType[])('lowerThanQuery(BPs, $input) = $output', ({
       breakpoints,
@@ -205,12 +205,12 @@ describe('breakpoints', () => {
       {
         breakpoints: breakpointsTest,
         input: 'test',
-        output: '(min-width: var(--breakpoint-test))',
+        output: '(min-width: 1px)',
       },
       {
         breakpoints: breakpointsTest,
         input: 'testThing',
-        output: '(min-width: var(--breakpoint-test-thing))',
+        output: '(min-width: 42px)',
       },
     ] satisfies RawQueryTestType[])('greaterThanQuery(BPs, $input) = $output', ({
       breakpoints,
@@ -231,12 +231,12 @@ describe('breakpoints', () => {
       {
         breakpoints: breakpointsTest,
         input: ['test', 'testThing'],
-        output: '(min-width: var(--breakpoint-test)) and (max-width: var(--breakpoint-test-thing))',
+        output: '(min-width: 1px) and (max-width: 42px)',
       },
       {
         breakpoints: breakpointsTest,
         input: ['testThing', 'test'],
-        output: '(min-width: var(--breakpoint-test-thing)) and (max-width: var(--breakpoint-test))',
+        output: '(min-width: 42px) and (max-width: 1px)',
       },
     ] satisfies RawQueryTestType[])('betweenQuery(BPs, $input) = $output', ({
       breakpoints,
@@ -294,19 +294,19 @@ describe('breakpoints', () => {
         },
         {
           input: [{ lowerThan: 'test' }],
-          output: '(max-width: var(--breakpoint-test))',
+          output: '(max-width: 1px)',
         },
         {
           input: [{ lowerThan: 'test' }, { greaterThan: 'testThing' }],
-          output: '(max-width: var(--breakpoint-test)) and (min-width: var(--breakpoint-test-thing))',
+          output: '(max-width: 1px) and (min-width: 42px)',
         },
         {
           input: ['not', 'screen', { lowerThan: 'test' }, 'not', { greaterThan: 'testThing' }],
-          output: 'not screen and (max-width: var(--breakpoint-test)) and not (min-width: var(--breakpoint-test-thing))',
+          output: 'not screen and (max-width: 1px) and not (min-width: 42px)',
         },
         {
           input: ['not', 'screen', { between: ['test', 'testThing'] }],
-          output: 'not screen and (min-width: var(--breakpoint-test)) and (max-width: var(--breakpoint-test-thing))',
+          output: 'not screen and (min-width: 1px) and (max-width: 42px)',
         },
       ] satisfies QueryTestType[])('queryBuilder(BPs, $input) = $output', ({
         input,
@@ -343,22 +343,22 @@ describe('breakpoints', () => {
         {
           media: 'media',
           input: [{ lowerThan: 'test' }],
-          output: '@media (max-width: var(--breakpoint-test))',
+          output: '@media (max-width: 1px)',
         },
         {
           media: 'media',
           input: [{ lowerThan: 'test' }, { greaterThan: 'testThing' }],
-          output: '@media (max-width: var(--breakpoint-test)) and (min-width: var(--breakpoint-test-thing))',
+          output: '@media (max-width: 1px) and (min-width: 42px)',
         },
         {
           media: 'media',
           input: ['not', 'screen', { lowerThan: 'test' }, 'not', { greaterThan: 'testThing' }],
-          output: '@media not screen and (max-width: var(--breakpoint-test)) and not (min-width: var(--breakpoint-test-thing))',
+          output: '@media not screen and (max-width: 1px) and not (min-width: 42px)',
         },
         {
           media: 'media',
           input: ['not', 'screen', { between: ['test', 'testThing'] }],
-          output: '@media not screen and (min-width: var(--breakpoint-test)) and (max-width: var(--breakpoint-test-thing))',
+          output: '@media not screen and (min-width: 1px) and (max-width: 42px)',
         },
       ] satisfies MediaQueryTestType[])('mediaQueryBuilder(BPs, $input) = $output', ({
         media,

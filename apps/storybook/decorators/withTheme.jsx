@@ -21,6 +21,8 @@ const Wrapper = styled.section(`
   background: ${theme.colors.background.main};
   color: ${theme.colors.text.main};
   ${theme.mixins.typography.body1};
+  min-height: 100%;
+  min-width: 100%;
   body:has(&) {
     background: ${theme.colors.background.main};
     color: ${theme.colors.text.main};
@@ -33,6 +35,12 @@ const Wrapper = styled.section(`
     background: ${theme.colors.background.main};
     color: ${theme.colors.text.main};
     ${theme.mixins.typography.body1};
+    min-height: 100%;
+    min-width: 100%;
+  }
+  #root:has(&) {
+    min-height: 100%;
+    min-width: 100%;
   }
 `);
 

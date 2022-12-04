@@ -21,10 +21,6 @@ export const SidebarContainer = styled(Container)<SidebarContentProps>(
     padding: toolbar ? '0 1rem' : '2rem 1rem',
   }),
 ).withComponent(Flex);
-SidebarContainer.defaultProps = {
-  gap: 1,
-  direction: 'column',
-};
 
 export const AppSidebar: FC = () => (
   <Sidebar>
@@ -34,7 +30,7 @@ export const AppSidebar: FC = () => (
         <ThemeSelector />
       </SidebarContainer>
     </Toolbar>
-    <SidebarContainer>
+    <SidebarContainer direction="column" gap={1}>
       <AccountList showStatus />
     </SidebarContainer>
   </Sidebar>

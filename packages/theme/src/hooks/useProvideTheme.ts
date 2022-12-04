@@ -67,7 +67,7 @@ export const useProvideTheme = (
   useEffect(
     () => {
       const style = Object.entries(theme.style)
-        .map(([k, v]) => `${k}: ${v};`)
+        .map(([k, v]) => `${k}:${v};`)
         .join('\n');
       const contentBlocks = [];
       if (['light', 'dark'].includes(name)) {
