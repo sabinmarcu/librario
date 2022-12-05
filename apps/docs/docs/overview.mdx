@@ -207,6 +207,8 @@ You can find all of these on the storybook app (link in the header).
 4. *Accessibility*. I'd definitely put focus on accessibility. I've done the bare minimum with the `Input`, but there's definitely way more to be done.
 5. *Better documentation*. I'd use `typedoc` (preferably integrated with `docusaurus`), and write JS/TSDoc comments. I'd be able to generate a nice API reference and have a nice place to document the components.
 6. *Use headless components*. I feel this is definitely the way to go when implementing components from scratch nowadays: grab components with the logic, accessibility, etc. already built in, and then just style them. 
+7. *Better Design*. I am no designer, that's for sure. I had an idea in mind and went with it. The problems started popping up fairly late on when I realized that the interface I was building was more flashy than useful. Overall, for example, I am happy with the UX within the sidebar, and top navigation (mobile design aside), but I would definitely implement the `BookCard`s differently, and perhaps even the lists, to make them flow better with the page. I had a horizontal design in mind, but that would also take more work to change for mobile devices.
+8. *Account for reduced motion*. Another thing I would do is build in `prefers-reduced-motion` support for lower-end devices.
 
 ## Biggest Regret {#biggest-regret}
 
