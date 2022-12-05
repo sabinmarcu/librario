@@ -1,0 +1,22 @@
+---
+sidebar_position: 3
+sidebar_label: Search
+---
+
+# Search
+
+:::success
+Global Search
+:::
+
+I envisioned a global search bar, that would be displayed in certain routes. I wanted the data from the search bar to be accessible everywhere, and be used to filter the data in any book lists.
+
+## Usage
+
+Plop the `Search` component somewhere in the app, and then use the `searchState` atom to query the input.
+
+
+## Improvements
+
+1. *Conditional render*. The naive approach would be some hook in the component rendering it, to decide on which route it should be displayed. Another, better option would be a Jotai state, and a simple component (or route wrapper) that would trigger visibility.
+2. *Value reset*. Coupled with the conditional render, I'd like to wipe the state on route change.

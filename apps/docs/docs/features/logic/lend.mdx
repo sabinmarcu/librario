@@ -1,0 +1,24 @@
+---
+sidebar_position: 3
+sidebar_label: Lending Logic
+---
+
+# Lending Feature
+
+Built just like the [books](./book), this is where things get interesting. `lend`s depend on both `account`s and `book`s, and there's a lot more logic behind it. I won't spoil much, but I'm reasonably happy with how it turned out.
+
+:::warning Naming, language... please?
+While I consider myself reasonably fluent in English, I couldn't think of a better name for these 😅. If you have any suggestions, please let me know!
+:::
+
+I don't want to spoil (and explain) too much of these, but I'll leave a few notes here:
+
+## Key Features
+
+1. When a lending is created, the lend `price` is stored at **reservation time**. Prices can change, in time, but late fees (and the flat fee) should reflect the moment of lending.
+2. A lending is associated with the `currentUser`'s `id` and the `ISBN` of the book being lent, as well as its `status`
+3. The amount of available books is tracked by the total `bookCopies` and the number of active reservations for that exact `ISBN`. 
+
+:::danger
+Also, I'd like to link back to [My biggest regret](../../overview#biggest-regret).
+:::

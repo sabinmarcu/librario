@@ -1,0 +1,16 @@
+---
+sidebar_position: 2
+sidebar_label: Books
+---
+
+# Books Feature
+
+Similar to the [Account](./account) logic, the Books feature is implemented in Jotai `atom` and `atomFamily` elements. Seeding these was a bit trickier, but not a huge hurdle. Each piece of data for the books is stored in a separate `atomWithStorage`, with a list of all `ISBN`s stored as well. `account`s didn't require this since those don't change. 
+
+This feature also includes components related to displaying a single book, or a list of books. To note is the fact that regular users will see a slightly different interface than admins. This is handled in the app itself (the decision on what to display), but the primitives are created in this feature.
+
+I won't go into details about the components, or logic. I don't want to color any reader's opinion of the code. 
+
+## Future Improvements
+
+1. I'd add a filter by availability (aka, be able to hide books that are not available for borrowing)

@@ -116,6 +116,11 @@ That being said, here are a few more cool things:
 1. Media queries generated based on the breakpoints are fully typed
 2. Transitions generated are also fully typed
 
+
+:::danger
+The below example is wrong, to an extent. While working past the theme engine creation, I discovered that `@media` queries cannot use `CSS Variables`. I don't know why I thought they would, but I did. I'm keeping the example for record's sake. The issue has been rectified in all but types. The types remain (for the time being) as `var(--breakpoint-something)`, while the actual `CSS` will use pixel measurements.
+:::
+
 Examples: 
 ```ts
 import { light: { theme: { breakpoints: { mediaQuery }, transitions: { create } } } } from './theme';
@@ -129,3 +134,13 @@ mediaQuery('media', 'screen', 'not', { lessThan: 'tablet' });
 mediaQuery('content', 'screen', { between: ['mobile', 'tablet'] });
 // => '@content screen and (min-width: var(--breakpoint-mobile) and (max-width: var(--breakpoint-tablet))'
 ```
+
+:::info
+Here's an example of how the media queries behave: 
+```ts
+mediaQuery('content', 'screen', { between: ['mobile', 'tablet'] });
+// Type => '@content screen and (min-width: var(--breakpoint-mobile) and (max-width: var(--breakpoint-tablet))'
+// CSS => '@content screen and (min-width: 600px) and (max-width: 1000px)'
+
+```
+:::
